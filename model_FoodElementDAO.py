@@ -1,30 +1,17 @@
-
-# Importa las clases que necesitas
 import pyodbc
 from controller_Main import DatabaseConnection
-
 from model_FoodElement import Calorie, FoodElement
 
-
-# Define tu conexión a la base de datos
+# Establish a connection to the database
 connection_string = DatabaseConnection()
 
-# Clase FoodElementDAO
+# Class FoodElementDAO
 class FoodElementDAO:
     def __init__(self, connection_string):
         self.connection_string = connection_string
 
-    # def get_food_elements(self):
-    #     food_elements = []
-    #     cursor = self.connection_string.connection.cursor()
-    #     cursor.execute("SELECT E.*, C.CantidadCalorias FROM ElementoComida E LEFT JOIN Calorias C ON E.ID = C.ID")
-    #     for row in cursor:
-    #         id, name, type, description, day_moment, calories = row
-    #         food_element = FoodElement(name, type, description, day_moment, calories)
-    #         food_elements.append(food_element)
-    #     cursor.close()
-    #     return food_elements
     def get_food_elements(self):
+        # Fetch food elements from the database
         food_elements = []
         cursor = self.connection_string.connection.cursor()
         cursor.execute("SELECT * FROM ElementoComida")
@@ -34,9 +21,9 @@ class FoodElementDAO:
             food_elements.append(food_element)
         cursor.close()
         return food_elements
-    
-   
+
     def get_calories(self):
+        # Fetch calorie information from the database
         caloriesList = []
         cursor = self.connection_string.connection.cursor()
         cursor.execute("SELECT ID, Nombre, CantidadCalorias FROM Calorias")
@@ -47,27 +34,17 @@ class FoodElementDAO:
         cursor.close()
         return caloriesList
 
-  
-
-
-# Crear una instancia de FoodElementDAO
+# Create an instance of FoodElementDAO
 dao = FoodElementDAO(connection_string)
 
-# Obtener la lista de elementos de comida desde la base de datos
+# Retrieve food elements and calorie information
 food_elements = dao.get_food_elements()
 calories = dao.get_calories()
 
-# Cerrar la conexión de la base de datos cuando hayas terminado
+# Close the database connection
 dao.connection_string.connection.close()
 
-#Ahora tienes una lista de objetos FoodElement desde la base de datos
-with open('datos.pl', 'w') as f:
-    for food_element in food_elements:
-        print(food_element)
-    for calorie in calories:
-        print(calorie)
-
-
+# Write data to a file named 'datos.pl'
 with open('datos.pl', 'w') as f:
     # Write data for food elements
     for food_element in food_elements:
@@ -75,11 +52,3 @@ with open('datos.pl', 'w') as f:
     # Write data for calories
     for calorie in calories:
         f.write(f'calorias({calorie.name}, {calorie.calories}).\n')
-
-    
-    
-
-
-
-
-

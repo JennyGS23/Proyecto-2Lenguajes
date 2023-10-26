@@ -4,7 +4,6 @@ class FoodElement:
         self.type = type
         self.description = description
         self.dayMoment= dayMoment
-        
 
     def __str__(self):
         return f"{self.name} - {self.type} - {self.description} - {self.dayMoment}"
@@ -53,27 +52,6 @@ class FoodElement:
         else:
             print("dayMoment must be string")
 
-   
-
-# class Calorie:
-#     def __init__(self, calories):
-#         self.calories = calories  
-
-#     def __str__(self):
-#         return f"{self.calories} "
-    
-#  # Getter of calories
-#     def getCalories(self):
-#         return self.calories
-
-#     # Setter of calories
-#     def setCalories(self, newCalories):
-#         if isinstance(newCalories, int):
-#             self.calories = newCalories
-#         else:
-#             print("Calories must be an int") 
-
-
 class Calorie:
     def __init__(self, name, calories):
         self.name = name
@@ -87,8 +65,8 @@ class Calorie:
         return self.calories
 
     # Setter of calories
-    def setCalories(self, newCalories):
-        self.calories = newCalories
-
-
-
+    def setCalories(self, newCalorie):
+        if isinstance(newCalorie, int):
+            self.calories = newCalorie
+        else:
+            print("Calories must be int")

@@ -8,12 +8,12 @@ bebida(zumo_uva, natural, almuerzo).
 bebida(refresco_cola, carbonatada, almuerzo).
 bebida(te, caliente, almuerzo).
 bebida(refresco_naranja, carbonatada, cena).
-bebida(refresco_limón, carbonatada, cena).
+bebida(refresco_limï¿½n, carbonatada, cena).
 bebida(te_verde, caliente, cena).
 bebida(te_negro, caliente, cena).
 bebida(leche_chocolate, con_lacteo, cena).
 
-% Base de datos de proteínas
+% Base de datos de proteï¿½nas
 proteina(carne_res, roja, cena).
 proteina(pollo, blanca, cena).
 proteina(pescado, marino, cena).
@@ -26,14 +26,14 @@ proteina(ternera, roja, cena).
 proteina(huevo, blanca, desayuno).
 proteina(camaron, marino, cena).
 
-% Base de datos de acompañamientos
+% Base de datos de acompaï¿½amientos
 acompanamiento(ensalada, vegetales, almuerzo).
 acompanamiento(papas_fritas, carbohidratos, almuerzo).
 acompanamiento(arroz, carbohidratos, almuerzo).
 acompanamiento(vegetal_al_vapor, vegetales, almuerzo).
 acompanamiento(ensalada_de_tomate, vegetales, almuerzo).
 acompanamiento(esparragos_gratinados, vegetales, almuerzo).
-acompanamiento(puré_de_papas, carbohidratos, almuerzo).
+acompanamiento(purï¿½_de_papas, carbohidratos, almuerzo).
 acompanamiento(macarrones_con_queso, carbohidratos, almuerzo).
 acompanamiento(pan_integral, carbohidratos, desayuno).
 acompanamiento(sopa_de_tomate, calientes, cena).
@@ -55,7 +55,7 @@ postre(chocolate_caliente, con_lacteo, desayuno).
 postre(helado_manzana, con_lacteo, almuerzo).
 
 
-% Base de datos de calorías por platillo
+% Base de datos de calorï¿½as por platillo
 calorias(agua, 0).
 calorias(jugo_naranja, 120).
 calorias(cafe, 2).
@@ -65,7 +65,7 @@ calorias(zumo_uva, 154).
 calorias(refresco_cola, 140).
 calorias(te, 2).
 calorias(refresco_naranja, 150).
-calorias(refresco_limón, 135).
+calorias(refresco_limï¿½n, 135).
 calorias(te_verde, 2).
 calorias(te_negro, 2).
 calorias(leche_chocolate, 208).
@@ -86,7 +86,7 @@ calorias(arroz, 130).
 calorias(vegetal_al_vapor, 68).
 calorias(ensalada_de_tomate, 78).
 calorias(esparragos_gratinados, 124).
-calorias(puré_de_papas, 143).
+calorias(purï¿½_de_papas, 143).
 calorias(macarrones_con_queso, 350).
 calorias(pan_integral, 80).
 calorias(sopa_de_tomate, 74).
@@ -105,7 +105,7 @@ calorias(tarta_fresa, 271).
 calorias(chocolate_caliente, 192).
 calorias(helado_manzana, 190).
 
-% Regla para encontrar combinaciones que coincidan con las preferencias del cliente y mostrar los nombres con saltos de línea.
+% Regla para encontrar combinaciones que coincidan con las preferencias del cliente y mostrar los nombres con saltos de lï¿½nea.
 % combinacion_cliente(TipoBebida, TipoProteina, TipoAcompanamiento, TipoPostre, MomentoDelDia) :-
 %    findall(Platillo, (
 %        bebida(Bebida, TipoBebida, MomentoDelDia),
@@ -117,8 +117,8 @@ calorias(helado_manzana, 190).
 %        format(atom(Platillo), 'Bebida: ~w, Proteina: ~w,
 %        Acompanamientos: ~w, Postre: ~w', [Bebida, Proteina,
 %        AcompanamientosUnicos, Postre]),
-%        writeln(Platillo), % Imprimir la combinación
-%        nl % Salto de línea
+%        writeln(Platillo), % Imprimir la combinaciï¿½n
+%        nl % Salto de lï¿½nea
 %    ), _).
 
 
@@ -153,9 +153,9 @@ combinacion_cliente(TipoBebida, TipoProteina, TipoAcompanamiento, TipoPostre, Mo
         list_to_set(Acompanamientos, AcompanamientosUnicos),
         calcular_total_calorias([Bebida, _|AcompanamientosUnicos], TotalCalorias),
         TotalCalorias =< CaloriasMinimas,
-        format(atom(Platillo), 'Bebida: ~w, Proteina: ~w, Acompanamientos: ~w, Postre: ~w, Calorías: ~w', [Bebida, Proteina, AcompanamientosUnicos, Postre, TotalCalorias]),
-        writeln(Platillo), % Imprimir la combinación
-        nl % Salto de línea
+        format(atom(Platillo), 'Bebida: ~w, Proteina: ~w, Acompanamientos: ~w, Postre: ~w, Calorï¿½as: ~w', [Bebida, Proteina, AcompanamientosUnicos, Postre, TotalCalorias]),
+        writeln(Platillo), % Imprimir la combinaciï¿½n
+        nl % Salto de lï¿½nea
     ), _).
 
 calcular_total_calorias([], 0).
@@ -173,7 +173,7 @@ combinaciones_diferentes_cliente(TipoBebida, TipoProteina, TipoAcompanamiento, T
         list_to_set(Acompanamientos, AcompanamientosUnicos),
         calcular_total_calorias([Bebida | AcompanamientosUnicos], TotalCalorias),
         TotalCalorias =< CaloriasMinimas,
-        format(atom(Platillo), 'Bebida: ~w, Proteina: ~w, Acompanamientos: ~w, Postre: ~w, Calorías: ~w', [Bebida, Proteina, AcompanamientosUnicos, Postre, TotalCalorias])
+        format(atom(Platillo), 'Bebida: ~w, Proteina: ~w, Acompanamientos: ~w, Postre: ~w, Calorï¿½as: ~w', [Bebida, Proteina, AcompanamientosUnicos, Postre, TotalCalorias])
     ), Combinaciones),
     obtener_10_combinaciones_diferentes(Combinaciones, 10, [], Resultado),
     imprimir_combinaciones(Resultado).
