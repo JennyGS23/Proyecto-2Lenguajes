@@ -1,9 +1,9 @@
 class FoodElement:
-    def __init__(self, name, type, description, dayMoment):
-        self.name = name
-        self.type = type
-        self.description = description
-        self.dayMoment= dayMoment
+    def __init__(self):
+        self.name = None
+        self.type = None
+        self.description = None
+        self.dayMoment= None
 
     def __str__(self):
         return f"{self.name} - {self.type} - {self.description} - {self.dayMoment}"
@@ -53,9 +53,9 @@ class FoodElement:
             print("dayMoment must be string")
 
 class Calorie:
-    def __init__(self, name, calories):
-        self.name = name
-        self.calories = calories
+    def __init__(self):
+        self.name = None
+        self.calories = None
 
     def __str__(self):
         return f"{self.name} - {self.calories}"
