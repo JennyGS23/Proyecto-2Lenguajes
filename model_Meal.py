@@ -1,63 +1,48 @@
-class Meal:
+from abc import ABC, abstractmethod
+
+# Abstract Factory Design Pattern: This code defines an abstract class for creating meals.
+
+# Abstract class 'Meal' that acts as the Product in the Abstract Factory pattern.
+class Meal(ABC):
     def __init__(self):
-        # Constructor to initialize the properties of Meal
+        # Common attributes for all meal types.
         self.id = None
-        self.drink = None
         self.protein = None
         self.sideDish = None
-        self.dessert = None
         self.dayMoment = None
-        self.minCalories = None
 
+    @abstractmethod
     def __str__(self):
-        # Custom string representation of Meal
-        return f"{self.id} - {self.drink} - {self.protein} - {self.sideDish} - {self.dessert} - {self.dayMoment} - {self.minCalories}"
+        pass
 
-    # Getter and Setter for 'id'
+    @abstractmethod
     def getId(self):
-        return self.id
-    
+        pass
+
+    @abstractmethod
     def setId(self, newId):
-        self.id = newId
+        pass
 
-    # Getter and Setter for 'drink'
-    def getDrink(self):
-        return self.drink
-
-    def setDrink(self, newDrink):
-        self.drink = newDrink
-
-    # Getter and Setter for 'protein'
+    @abstractmethod
     def getProtein(self):
-        return self.protein
+        pass
 
-    def setProtein(self, newProtein):
-        self.protein = newProtein
+    @abstractmethod
+    def setProtein(self, newId):
+        pass
 
-    # Getter and Setter for 'sideDish'
+    @abstractmethod
     def getSideDish(self):
-        return self.sideDish
+        pass
 
-    def setSideDish(self, newSideDish):
-        self.sideDish = newSideDish
+    @abstractmethod
+    def setSideDish(self, newId):
+        pass
 
-    # Getter and Setter for 'dessert'
-    def getDessert(self):
-        return self.dessert
-
-    def setDessert(self, newDessert):
-        self.dessert = newDessert
-
-    # Getter and Setter for 'dayMoment'
+    @abstractmethod
     def getDayMoment(self):
-        return self.dayMoment
+        pass
 
+    @abstractmethod
     def setDayMoment(self, newDayMoment):
-        self.dayMoment = newDayMoment
-
-    # Getter and Setter for 'minCalories'
-    def getMinCalories(self):
-        return self.minCalories
-
-    def setMinCalories(self, newMinCalories):
-        self.minCalories = newMinCalories
+        pass
