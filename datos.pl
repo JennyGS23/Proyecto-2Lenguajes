@@ -1,18 +1,23 @@
 elementoComida(agua, bebida, natural, general).
-elementoComida(jugo_naranja, bebida, natural, desayuno).
+elementoComida(fresco_cas, bebida, natural, general).
+elementoComida(fresco_tamarindo, bebida, natural, general).
+elementoComida(fresco_guanabana, bebida, natural, general).
+elementoComida(jugo_naranja, bebida, natural, general).
 elementoComida(cafe, bebida, caliente, desayuno).
 elementoComida(leche, bebida, natural, desayuno).
 elementoComida(jugo_manzana, bebida, natural, almuerzo).
 elementoComida(zumo_uva, bebida, natural, almuerzo).
 elementoComida(refresco_cola, bebida, carbonatada, almuerzo).
-elementoComida(te, bebida, caliente, almuerzo).
+elementoComida(te, bebida, caliente, general).
 elementoComida(refresco_naranja, bebida, carbonatada, cena).
 elementoComida(refresco_limon, bebida, carbonatada, cena).
 elementoComida(te_verde, bebida, caliente, cena).
 elementoComida(te_negro, bebida, caliente, cena).
 elementoComida(leche_chocolate, bebida, con_lacteo, cena).
 elementoComida(carne_res, proteina, roja, general).
-elementoComida(pollo, proteina, blanca, general).
+elementoComida(pollo_salsa_blanca, proteina, blanca, almuerzo).
+elementoComida(pollo_salsa_jalapena, proteina, blanca, almuerzo).
+elementoComida(pollo_asado, proteina, blanca, general).
 elementoComida(pescado, proteina, marino, general).
 elementoComida(cerdo, proteina, roja, almuerzo).
 elementoComida(pavo, proteina, blanca, cena).
@@ -21,6 +26,7 @@ elementoComida(lentejas, proteina, vegetariana, almuerzo).
 elementoComida(salmon, proteina, marino, cena).
 elementoComida(ternera, proteina, roja, cena).
 elementoComida(huevo, proteina, blanca, desayuno).
+elementoComida(tocino, proteina, roja, desayuno).
 elementoComida(camaron, proteina, marino, general).
 elementoComida(ensalada, acompanamiento, vegetales, general).
 elementoComida(papas_fritas, acompanamiento, carbohidratos, almuerzo).
@@ -38,7 +44,7 @@ elementoComida(queque, postre, reposteria, cena).
 elementoComida(fruta, postre, sin_lacteo, desayuno).
 elementoComida(helado, postre, con_lacteo, cena).
 elementoComida(tarta_manzana, postre, con_lacteo, almuerzo).
-elementoComida(gelatina_frutas, postre, sin_lacteo, almuerzo).
+elementoComida(gelatina_frutas, postre, sin_lacteo, general).
 elementoComida(tiramisu, postre, con_lacteo, cena).
 elementoComida(flan, postre, con_lacteo, cena).
 elementoComida(crema_cacahuate, postre, sin_lacteo, cena).
@@ -47,6 +53,9 @@ elementoComida(tarta_fresa, postre, con_lacteo, almuerzo).
 elementoComida(chocolate_caliente, postre, con_lacteo, desayuno).
 elementoComida(helado_manzana, postre, con_lacteo, almuerzo).
 calorias(agua, 0).
+calorias(fresco_cas, 60).
+calorias(fresco_tamarindo, 62).
+calorias(fresco_guanabana, 70).
 calorias(jugo_naranja, 120).
 calorias(cafe, 2).
 calorias(leche, 42).
@@ -60,7 +69,9 @@ calorias(te_verde, 2).
 calorias(te_negro, 2).
 calorias(leche_chocolate, 208).
 calorias(carne_res, 250).
-calorias(pollo, 335).
+calorias(pollo_salsa_blanca, 335).
+calorias(pollo_salsa_jalapena, 330).
+calorias(pollo_asado, 320).
 calorias(pescado, 206).
 calorias(cerdo, 242).
 calorias(pavo, 135).
@@ -69,6 +80,7 @@ calorias(lentejas, 230).
 calorias(salmon, 367).
 calorias(ternera, 250).
 calorias(huevo, 68).
+calorias(tocino, 68).
 calorias(camaron, 99).
 calorias(ensalada, 35).
 calorias(papas_fritas, 365).

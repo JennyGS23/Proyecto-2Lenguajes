@@ -17,5 +17,5 @@ class PrologInterpreter:
 prolog_instance = PrologInterpreter()
 
 # Query the Prolog knowledge base
-for solucion in prolog_instance.prolog.query('combinaciones_diferentes_cliente(caliente, marino, calientes, sin_postre,  cena, 600).'):
+for solucion in prolog_instance.prolog.query('combinaciones_diferentes_cliente(natural, blanca, carbohidratos, con_postre,  desayuno, 200).'):
     print(solucion)
