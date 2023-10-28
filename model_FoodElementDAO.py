@@ -3,52 +3,58 @@ from controller_Main import DatabaseConnection
 from model_FoodElement import Calorie, FoodElement
 
 # Establish a connection to the database
-connection_string = DatabaseConnection()
+connectionString = DatabaseConnection()
 
 # Class FoodElementDAO
 class FoodElementDAO:
-    def __init__(self, connection_string):
-        self.connection_string = connection_string
+    def __init__(self, connectionString):
+        self.connectionString = connectionString
 
-    def get_food_elements(self):
+    def getFoodElements(self):
         # Fetch food elements from the database
-        food_elements = []
-        cursor = self.connection_string.connection.cursor()
+        foodElements = []
+        cursor = self.connectionString.connection.cursor()
         cursor.execute("SELECT * FROM ElementoComida")
         for row in cursor:
-            id, name, type, description, day_moment = row
-            food_element = FoodElement(name, type, description, day_moment)
-            food_elements.append(food_element)
+            id, name, type, description, dayMoment = row
+            foodElement = FoodElement()
+            foodElement.setName(name)
+            foodElement.setType(type)
+            foodElement.setDescription(description)
+            foodElement.setDayMoment(dayMoment)
+            foodElements.append(foodElement)
         cursor.close()
-        return food_elements
+        return foodElements
 
-    def get_calories(self):
+    def getCalories(self):
         # Fetch calorie information from the database
         caloriesList = []
-        cursor = self.connection_string.connection.cursor()
+        cursor = self.connectionString.connection.cursor()
         cursor.execute("SELECT ID, Nombre, CantidadCalorias FROM Calorias")
         for row in cursor:
             id, name, calories = row
-            calorie = Calorie(name, calories)
+            calorie = Calorie()
+            calorie.setName(name)
+            calorie.setCalories(calories)
             caloriesList.append(calorie)
         cursor.close()
         return caloriesList
 
 # Create an instance of FoodElementDAO
-dao = FoodElementDAO(connection_string)
+dao = FoodElementDAO(connectionString)
 
 # Retrieve food elements and calorie information
-food_elements = dao.get_food_elements()
-calories = dao.get_calories()
+foodElements = dao.getFoodElements()
+calories = dao.getCalories()
 
 # Close the database connection
-dao.connection_string.connection.close()
+dao.connectionString.connection.close()
 
 # Write data to a file named 'datos.pl'
 with open('datos.pl', 'w') as f:
     # Write data for food elements
-    for food_element in food_elements:
-        f.write(f'elementoComida({food_element.name}, {food_element.type}, {food_element.description}, {food_element.dayMoment}).\n')
+    for foodElement in foodElements:
+        f.write(f'elementoComida({foodElement.getName()}, {foodElement.getType()}, {foodElement.getDescription()}, {foodElement.getDayMoment()}).\n')
     # Write data for calories
     for calorie in calories:
-        f.write(f'calorias({calorie.name}, {calorie.calories}).\n')
+        f.write(f'calorias({calorie.getName()}, {calorie.getCalories()}).\n')
