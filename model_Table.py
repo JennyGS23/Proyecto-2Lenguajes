@@ -32,17 +32,17 @@ class Table:
         return self.clientList
     
     def setClientList(self, newClientList):
-        if isinstance(newClientList, Client[]):
+        if isinstance(newClientList, list) and all(isinstance(client, Client) for client in newClientList):
             self.clientList = newClientList
         else:
-            print("ClientList must be a list of client")
+            raise ValueError("clientList must be a list of Client objects")
+            
+    # Getter and Setter for 'totalPrice'
+    def getTotalPrice(self):
+        return self.totalPrice
 
-    # Getter and Setter for 'uniquePay'
-    def getUniquePay(self):
-        return self.uniquePay
-
-    def setUniquePay(self, newUniquePay):
-        if isinstance(newName, bool):
-            self.uniquePay = newUniquePay
+    def setTotalPrice(self, newTotalPrice):
+        if isinstance(newTotalPrice, int):
+            self.totalPrice = newTotalPrice
         else:
-            print("UniquePay must be bool")
+            raise ValueError("Total price must be an integer")

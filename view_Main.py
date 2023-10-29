@@ -1,33 +1,21 @@
 import tkinter as tk
+from view_Order import OrderView
 
-class RestaurantView:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Panel de Inicio")
-        self.root.geometry("400x300")
+class VentanaPrincipal(tk.Tk):
+    def __init__(self):
+        super().__init__()
 
-        self.label = tk.Label(root, text="Bienvenido al Panel de Inicio")
-        self.label.pack()
+        self.title("Ventana Principal")
+        self.geometry("300x200")
+        
+        # Botón para abrir la segunda ventana
+        btn_abrir_segunda_ventana = tk.Button(self, text="Abrir Segunda Ventana", command=self.abrir_segunda_ventana)
+        btn_abrir_segunda_ventana.pack()
 
-        # Botón para acceder a la gestión del inventario
-        self.inventory_button = tk.Button(root, text="Gestión de Inventario", command=self.open_inventory)
-        self.inventory_button.pack()
-
-        # Botón para registrar órdenes de clientes
-        self.order_button = tk.Button(root, text="Registrar Órdenes", command=self.open_orders)
-        self.order_button.pack()
-
-    def open_inventory(self):
-        # Deberías implementar la lógica para abrir la ventana de gestión de inventario aquí.
-        print("Abriendo la ventana de gestión de inventario.")
-
-    def open_orders(self):
-        # Deberías implementar la lógica para abrir la ventana de registro de órdenes aquí.
-        print("Abriendo la ventana de registro de órdenes.")
+    def abrir_segunda_ventana(self):
+        # Crea una instancia de la segunda ventana
+        segunda_ventana = OrderView(self)
 
 if __name__ == "__main__":
-    root = tk.Tk()
-
-    view = RestaurantView(root)
-    
-    root.mainloop()
+    app = VentanaPrincipal()
+    app.mainloop()
