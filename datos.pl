@@ -22,7 +22,7 @@ elementoComida(pescado, proteina, marino, general).
 elementoComida(cerdo, proteina, roja, almuerzo).
 elementoComida(pavo, proteina, blanca, cena).
 elementoComida(atun, proteina, marino, almuerzo).
-elementoComida(lentejas, proteina, vegetariana, almuerzo).
+elementoComida(lentejas, proteina, carbohidratos, almuerzo).
 elementoComida(salmon, proteina, marino, cena).
 elementoComida(ternera, proteina, roja, cena).
 elementoComida(huevo, proteina, blanca, desayuno).
