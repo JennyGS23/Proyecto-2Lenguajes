@@ -1,5 +1,5 @@
 import tkinter as tk
-from view_Order import OrderView
+from view_MealHealthy import HealthyMealView
 
 class VentanaPrincipal(tk.Tk):
     def __init__(self):
@@ -14,7 +14,7 @@ class VentanaPrincipal(tk.Tk):
 
     def abrir_segunda_ventana(self):
         # Crea una instancia de la segunda ventana
-        segunda_ventana = OrderView(self)
+        segunda_ventana = HealthyMealView(self)
 
 if __name__ == "__main__":
     app = VentanaPrincipal()
