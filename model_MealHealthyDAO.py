@@ -1,12 +1,12 @@
 import pyodbc
 from controller_Main import DatabaseConnection
-from model_MealCombo import ComboMeal
+from model_MealHealthy import HealthyMeal
 
 # Establish a connection to the database
 connection_string = DatabaseConnection()
 
 # Class MealDAO
-class ComboMealDAO:
+class HealthyMealDAO:
     def __init__(self, connection_string):
         self.connection_string = connection_string
 
@@ -14,27 +14,37 @@ class ComboMealDAO:
         # Fetch meals from the database
         meals = []
         cursor = self.connection_string.connection.cursor()
-        cursor.execute("SELECT * FROM ComboMeals")
+        cursor.execute("SELECT * FROM HealthyMeals")
         for row in cursor:
-            id, drink, protein, sideDish, dessert, dayMoment= row
-            meal = ComboMeal()
+            id, drink, protein, sideDish, dessert, dayMoment, minCalories= row
+            meal = HealthyMeal()
             meal.setId(id)
             meal.setDrink(drink)
             meal.setProtein(protein)
             meal.setSideDish(sideDish)
             meal.setDessert(dessert)
             meal.setDayMoment(dayMoment)
+            meal.setMinCalories(minCalories)
             meals.append(meal)
         cursor.close()
         return meals
     
-    def setMeal(self, drink, protein, sideDish, dessert, dayMoment):
+    
+
+    
+    
+    def setMeal(self, drink, protein, sideDish, dessert, minCalories):
         # Add a new meal to the database
         cursor = self.connection_string.connection.cursor()
-        cursor.execute("INSERT INTO ComboMeals (drink, protein, sideDish, dessert, dayMoment) VALUES (?, ?, ?, ?, ?, ?)",
-                       (drink, protein, sideDish, dessert, dayMoment))
+        cursor.execute("INSERT INTO HealthyMeals (Drink, Proteins, SideDish, Dessert, MinCalories) VALUES (?, ?, ?, ?, ?)",
+                    ( drink, protein, sideDish, dessert, minCalories))
         self.connection_string.connection.commit()
         cursor.close()
+
+
+        
+
+
 
 # Create an instance of FoodElementDAO
 #dao = MealDAO(connection_string)

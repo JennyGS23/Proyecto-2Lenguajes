@@ -2,7 +2,7 @@ from abc import ABC
 from model_Meal import Meal  # Import the base class 'Meal'
 
 # 'HealthyMeal' class is a concrete implementation of a meal, extending the abstract 'Meal' class.
-class ComboMeal(Meal):
+class HealthyMeal(Meal):
     def __init__(self):
         super().__init__()  # Initialize the attributes defined in the base class.
         self.drink = None
@@ -11,7 +11,7 @@ class ComboMeal(Meal):
 
     def __str__(self):
         # Custom string representation of Healthy Meal, combining its attributes.
-        return f"{self.id} - {self.drink} - {self.protein} - {self.sideDish} - {self.dessert} - {self.dayMoment} - {self.minCalories}"
+        return f"{self.id} - {self.drink} - {self.protein} - {self.sideDish} - {self.dessert} - {self.minCalories}"
     
     # Getter and Setter for 'id'
     def getId(self):

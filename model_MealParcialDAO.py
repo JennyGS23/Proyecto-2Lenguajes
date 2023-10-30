@@ -1,6 +1,6 @@
 import pyodbc
 from controller_Main import DatabaseConnection
-from model_MealCombo import ComboMeal
+from model_MealParcial import ParcialMeal
 
 # Establish a connection to the database
 connection_string = DatabaseConnection()
@@ -14,25 +14,24 @@ class ComboMealDAO:
         # Fetch meals from the database
         meals = []
         cursor = self.connection_string.connection.cursor()
-        cursor.execute("SELECT * FROM ComboMeals")
+        cursor.execute("SELECT * FROM ParcialMeals")
         for row in cursor:
-            id, drink, protein, sideDish, dessert, dayMoment= row
-            meal = ComboMeal()
+            id, protein, sideDish, dayMoment= row
+            meal = ParcialMeal()
             meal.setId(id)
-            meal.setDrink(drink)
             meal.setProtein(protein)
             meal.setSideDish(sideDish)
-            meal.setDessert(dessert)
             meal.setDayMoment(dayMoment)
             meals.append(meal)
         cursor.close()
         return meals
-    
-    def setMeal(self, drink, protein, sideDish, dessert, dayMoment):
+
+
+    def setMeal(self, protein, sideDish, dayMoment):
         # Add a new meal to the database
         cursor = self.connection_string.connection.cursor()
-        cursor.execute("INSERT INTO ComboMeals (drink, protein, sideDish, dessert, dayMoment) VALUES (?, ?, ?, ?, ?, ?)",
-                       (drink, protein, sideDish, dessert, dayMoment))
+        cursor.execute("INSERT INTO ParcialMeals (protein, sideDish, dayMoment) VALUES (?, ?, ?, ?)",
+                       (protein, sideDish, dayMoment))
         self.connection_string.connection.commit()
         cursor.close()
 

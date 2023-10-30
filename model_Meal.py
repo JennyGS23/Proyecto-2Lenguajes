@@ -9,7 +9,7 @@ class Meal(ABC):
         self.id = None
         self.protein = None
         self.sideDish = None
-        self.dayMoment = None
+       
 
     @abstractmethod
     def __str__(self):
@@ -39,10 +39,4 @@ class Meal(ABC):
     def setSideDish(self, newId):
         pass
 
-    @abstractmethod
-    def getDayMoment(self):
-        pass
-
-    @abstractmethod
-    def setDayMoment(self, newDayMoment):
-        pass
+    
