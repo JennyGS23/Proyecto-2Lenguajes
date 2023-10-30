@@ -1,10 +1,1 @@
-{Bebida:jugo_naranja,Proteina:cerdo,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:198}
-{Bebida:jugo_manzana,Proteina:cerdo,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:193}
-{Bebida:agua,Proteina:carne_res,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:78}
-{Bebida:jugo_naranja,Proteina:cerdo,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:198}
-{Bebida:fresco_guanabana,Proteina:cerdo,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:148}
-{Bebida:fresco_tamarindo,Proteina:carne_res,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:140}
-{Bebida:agua,Proteina:carne_res,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:78}
-{Bebida:jugo_naranja,Proteina:carne_res,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:198}
-{Bebida:fresco_tamarindo,Proteina:cerdo,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:140}
-{Bebida:fresco_tamarindo,Proteina:cerdo,Acompanamientos:[ensalada_de_tomate],Postre:sin_postre,Calorias:140}
+hols

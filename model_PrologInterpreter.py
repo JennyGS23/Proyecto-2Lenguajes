@@ -62,7 +62,3 @@ for line in lines:
 
         database.setMeal(bebida, proteina, acompanamientos, postre, calorias)
 
-
-
-
-

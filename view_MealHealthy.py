@@ -74,12 +74,9 @@ class HealthyMealView(tk.Toplevel):
 
         # Aquí debes procesar las selecciones como lo necesites
         # Por ahora, solo lo mostraré en el Listbox como ejemplo
-        self.listbox.delete(0, tk.END)  # Borrar elementos anteriores en el Listbox
-        self.listbox.insert(tk.END, f"Selección de bebida: {drink_selection}")
-        self.listbox.insert(tk.END, f"Selección de proteína: {protein_selection}")
+        #self.listbox.delete(0, tk.END)  # Borrar elementos anteriores en el Listbox
+        #self.listbox.insert(tk.END, f"Selección de bebida: {drink_selection}")
+        #self.listbox.insert(tk.END, f"Selección de proteína: {protein_selection}")
         # Mostrar selecciones de otros ComboBoxes de la misma manera
+        return drink_selection, protein_selection
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = HealthyMealView(master=root)
-    app.mainloop()
