@@ -25,44 +25,45 @@ database = model_MealHealthyDAO.HealthyMealDAO(connection_string)
 
 
 
+
 def obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas):
-    prolog = Prolog()
-    prolog.consult('filtros.pl')
-
-    prolog.query('consulta_combinaciones({Bebida},  {Proteina}, {Acompanamiento}, {Postre}, {MomentoDelDia}, {CaloriasMinimas}).')
-
-
-
-Bebida = 'natural'
-Proteina = 'blanca'
-Acompanamiento = 'carbohidratos'
-Postre = 'sin_postre'
-MomentoDelDia = 'desayuno'
-CaloriasMinimas = 200
-
-combinaciones = obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas)
-
-
-# Abre el archivo y lee las líneas
-with open('respuesta.txt', 'r') as file:
-    lines = file.readlines()
-
-# Patrón de búsqueda utilizando expresiones regulares
-pattern = r'{Bebida:(.*?),Proteina:(.*?),Acompanamientos:\[(.*?)\],Postre:(.*?),Calorias:(\d+)}'
-
-# Itera a través de las líneas y extrae los componentes
-for line in lines:
-    match = re.search(pattern, line)
-    if match:
-        bebida = match.group(1)
-        proteina = match.group(2)
-        acompanamientos = match.group(3).split(',').pop()
-        postre = match.group(4)
-        calorias = int(match.group(5))
-
-        database.setMeal(bebida, proteina, acompanamientos, postre, calorias)
+    query = f'combinaciones_diferentes_cliente({Bebida}, {Proteina}, {Acompanamiento}, {Postre}, {MomentoDelDia}, {CaloriasMinimas}).'
+    
+    for solucion in prolog_instance.prolog.query(query):
+        None
 
 
 
+if __name__ == '__main__':
+    Bebida = 'caliente'
+    Proteina = 'marino'
+    Acompanamiento = 'calientes'
+    Postre = 'sin_postre'
+    MomentoDelDia = 'cena'
+    CaloriasMinimas = 600
+
+    combinaciones = obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas)
 
 
+# # Abre el archivo y lee las líneas
+# with open('combinaciones.txt', 'r') as file:
+#     lines = file.readlines()
+
+# # Patrón de búsqueda utilizando expresiones regulares
+# pattern = r'{Bebida:(.*?),Proteina:(.*?),Acompanamientos:\[(.*?)\],Postre:(.*?),Calorias:(\d+)}'
+
+# # Itera a través de las líneas y extrae los componentes
+# for line in lines:
+#     match = re.search(pattern, line)
+#     if match:
+#         bebida = match.group(1)
+#         proteina = match.group(2)
+#         acompanamientos = match.group(3).split(',').pop()
+#         postre = match.group(4)
+#         calorias = int(match.group(5))
+
+#         database.setMeal(bebida, proteina, acompanamientos, postre, calorias)
+
+
+# for solucion in prolog_instance.prolog.query('combinaciones_diferentes_cliente(caliente, marino, calientes, sin_postre,  cena, 600).'):
+#     print(solucion);
