@@ -1,8 +1,7 @@
 import tkinter
-from view_MealHealthy import HealthyMealView
+from view_Main import VentanaPrincipal
 
 
 if __name__ == "__main__":
-    root = tkinter.Tk()
-    app = HealthyMealView(master=root)
+    app = VentanaPrincipal()
     app.mainloop()
