@@ -61,10 +61,7 @@ class HealthyMealView(tk.Toplevel):
         frame_listbox.pack()
         self.listbox = tk.Listbox(frame_listbox, width=40, height=15)
         self.listbox.pack()
-        scrollbar = tk.Scrollbar(self, orient="vertical")
-        self.listbox.config(yscrollcommand=scrollbar.set)
-        scrollbar.config(command=self.listbox.yview)
-        scrollbar.pack()
+
 
     def mostrar_opciones(self):
         # Aquí puedes obtener las selecciones de los ComboBox y enviarlas al controlador
