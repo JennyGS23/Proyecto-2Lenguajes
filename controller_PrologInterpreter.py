@@ -34,7 +34,7 @@ def obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, Momen
 
 
 
-if __name__ == '__main__':
+
     Bebida = 'caliente'
     Proteina = 'marino'
     Acompanamiento = 'calientes'
@@ -45,25 +45,29 @@ if __name__ == '__main__':
     combinaciones = obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas)
 
 
-# # Abre el archivo y lee las líneas
-# with open('combinaciones.txt', 'r') as file:
-#     lines = file.readlines()
+# Abre el archivo y lee las líneas
+with open('combinaciones.txt', 'r') as file:
+    lines = file.readlines()
 
-# # Patrón de búsqueda utilizando expresiones regulares
-# pattern = r'{Bebida:(.*?),Proteina:(.*?),Acompanamientos:\[(.*?)\],Postre:(.*?),Calorias:(\d+)}'
-
-# # Itera a través de las líneas y extrae los componentes
-# for line in lines:
-#     match = re.search(pattern, line)
-#     if match:
-#         bebida = match.group(1)
-#         proteina = match.group(2)
-#         acompanamientos = match.group(3).split(',').pop()
-#         postre = match.group(4)
-#         calorias = int(match.group(5))
-
-#         database.setMeal(bebida, proteina, acompanamientos, postre, calorias)
+# Patrón de búsqueda utilizando expresiones regulares
+#pattern = r'{Bebida:(.*?),Proteina:(.*?),Acompanamientos:\[(.*?)\],Postre:(.*?),Calorias:(\d+)}'
+pattern = r'Bebida: (.*?), Proteina: (.*?), Acompanamientos: \[(.*?)\], Postre: (.*?), Calorias: (\d+)'
 
 
+# Itera a través de las líneas y extrae los componentes
+for line in lines:
+    print(line)  # Imprime la línea para depuración
+    match = re.search(pattern, line)
+    if match:
+        print("prueba")
+        bebida = match.group(1)
+        proteina = match.group(2)
+        acompanamientos = match.group(3).split(',').pop()
+        postre = match.group(4)
+        calorias = int(match.group(5))
+
+        # Llama a la función setMeal con los datos extraídos
+        database.setMeal(bebida, proteina, acompanamientos, postre, calorias)
 # for solucion in prolog_instance.prolog.query('combinaciones_diferentes_cliente(caliente, marino, calientes, sin_postre,  cena, 600).'):
 #     print(solucion);
+
