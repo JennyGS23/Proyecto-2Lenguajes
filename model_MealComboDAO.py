@@ -31,6 +31,7 @@ class ComboMealDAO:
     def setMeal(self, drink, protein, sideDish, dessert, dayMoment):
         # Add a new meal to the database
         cursor = self.connection_string.connection.cursor()
+        print(drink, protein, sideDish)
         cursor.execute("INSERT INTO ComboMeals (drink, protein, sideDish, dessert, dayMoment) VALUES (?, ?, ?, ?, ?, ?)",
                        (drink, protein, sideDish, dessert, dayMoment))
         self.connection_string.connection.commit()
