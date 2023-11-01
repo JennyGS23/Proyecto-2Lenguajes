@@ -23,16 +23,6 @@ class PrologInterpreter:
 prolog_instance = PrologInterpreter()
 database = model_MealHealthyDAO.HealthyMealDAO(connection_string)
 
-
-
-
-def obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas):
-    query = f'combinaciones_diferentes_cliente({Bebida}, {Proteina}, {Acompanamiento}, {Postre}, {MomentoDelDia}, {CaloriasMinimas}).'
-    
-    for solucion in prolog_instance.prolog.query(query):
-        None
-
-
 def enviar_combinaciones():
     # Abre el archivo y lee las líneas
     with open('combinaciones.txt', 'r') as file:
@@ -59,6 +49,14 @@ def enviar_combinaciones():
     # for solucion in prolog_instance.prolog.query('combinaciones_diferentes_cliente(caliente, marino, calientes, sin_postre,  cena, 600).'):
     #     print(solucion);
 
+
+def obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas):
+    query = f'combinaciones_diferentes_cliente({Bebida}, {Proteina}, {Acompanamiento}, {Postre}, {MomentoDelDia}, {CaloriasMinimas}).'
+    
+    for solucion in prolog_instance.prolog.query(query):
+        None
+    enviar_combinaciones()
+
     
 
 if __name__ == '__main__':
@@ -77,7 +75,7 @@ if __name__ == '__main__':
     CaloriasMinimas = 600
 
     combinaciones = obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas)
-    enviar_combinaciones()
+    
 
 
 
