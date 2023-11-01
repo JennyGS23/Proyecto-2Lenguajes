@@ -14,4 +14,3 @@ class VentanaPrincipal(tk.Tk):
 
     def abrir_segunda_ventana(self):
         # Crea una instancia de la segunda ventana
-        mesa = TableView(self)
