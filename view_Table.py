@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from view_MealHealthy import HealthyMealView
+from view_Order import OrderView
 
 class TableView(tk.Toplevel):
     def __init__(self, master=None):
@@ -21,12 +21,12 @@ class TableView(tk.Toplevel):
         comboSeats.pack(side="left")
 
         # ComboBox pay
-        self.selectecPay = tk.StringVar()  
+        self.selectedPay = tk.StringVar()  # Corregir el nombre de la variable
         framePay = tk.Frame(self)
         framePay.pack()
         lblPay = tk.Label(framePay, text="Pago único:")
         lblPay.pack(side="left")
-        comboPay = ttk.Combobox(framePay, values=["Sí", "No"], state="readonly", textvariable=self.selectecPay)
+        comboPay = ttk.Combobox(framePay, values=["Sí", "No"], state="readonly", textvariable=self.selectedPay)
         comboPay.pack(side="left")
 
         # Botón calcular
@@ -34,5 +34,6 @@ class TableView(tk.Toplevel):
         btnOrder.pack()
 
     def Ordenar(self):
+        selected_seats = int(self.selectedSeats.get())  # Obtener el valor seleccionado y convertirlo a entero
         self.withdraw()  # Ocultar la ventana actual
-        order = HealthyMealView(self)
+        order = OrderView(self, cantClient=selected_seats)
