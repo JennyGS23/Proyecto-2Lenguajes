@@ -31,18 +31,12 @@ class Table:
     def getClientList(self):
         return self.clientList
     
-    def setClientList(self, cantClient):
-        if not isinstance(cantClient, int) or cantClient < 0:
-            raise ValueError("cantClient must be a non-negative integer")
-
-        new_clients = []
-        for i in range(cantClient):
-            new_client = Client()
-            new_client.setId(i) 
-            new_clients.append(new_client)
-
-        self.clientList = new_clients
-
+    def setClientList(self, newClientList):
+        if isinstance(newClientList, list) and all(isinstance(client, Client) for client in newClientList):
+            self.clientList = newClientList
+        else:
+            raise ValueError("clientList must be a list of Client objects")
+            
     # Getter and Setter for 'totalPrice'
     def getTotalPrice(self):
         return self.totalPrice

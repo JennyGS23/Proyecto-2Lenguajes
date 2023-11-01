@@ -13,4 +13,4 @@ class VentanaPrincipal(tk.Tk):
         btn_abrir_segunda_ventana.pack()
 
     def abrir_segunda_ventana(self):
-        # Crea una instancia de la segunda ventana
+        app = TableView()
