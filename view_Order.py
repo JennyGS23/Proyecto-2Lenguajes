@@ -34,6 +34,9 @@ class OrderView(tk.Toplevel):
             self.listbox = tk.Listbox(frame_listbox, width=40, height=1)
             self.listbox.pack()
 
+        btnPagar = tk.Button(frame_buttons, text="Pagar", command=lambda client=client_number: self.ordenar_saludable(client))
+        btnPagar.pack(side=tk.LEFT, padx=5)  # Alinea a la izquierda con un espacio de 5 píxeles
+
     def ordenar_combo(self, client_number):
         # Lógica para ordenar un combo para el cliente 'client_number'
         print(f"Ordenar combo para el cliente {client_number}")
