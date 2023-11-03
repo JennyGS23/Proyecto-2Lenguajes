@@ -36,7 +36,7 @@ class HealthyMealView(tk.Toplevel):
         frame_side_dish.pack()
         lblSideDish = tk.Label(frame_side_dish, text="Tipo de acompañamiento:")
         lblSideDish.pack(side="left")
-        comboSideDish = ttk.Combobox(frame_side_dish, values=["vegetales", "carbohidratos", "calientes"], state="readonly", textvariable=self.selected_side_dish)
+        comboSideDish = ttk.Combobox(frame_side_dish, values=["vegetales", "carbohidratos", "caliente"], state="readonly", textvariable=self.selected_side_dish)
         comboSideDish.pack(side="left")
 
         # ComboBox postre
@@ -69,7 +69,6 @@ class HealthyMealView(tk.Toplevel):
         # Botón calcular
         btnCalc = tk.Button(self, text="Ver opciones", command=self.mostrar_opciones)
         btnCalc.pack()
-        
 
         # Listbox para mostrar los resultados
         frame_listbox = tk.Frame(self)
@@ -77,6 +76,10 @@ class HealthyMealView(tk.Toplevel):
         self.listbox = tk.Listbox(frame_listbox, width=100, height=15)
         self.listbox.pack()
         
+
+        # Botón ordenar
+        btnOrder = tk.Button(self, text="Ordenar combo")
+        btnOrder.pack()
 
     def cargar_contenido(self):
         # Abre el archivo en modo lectura
