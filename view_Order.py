@@ -6,10 +6,13 @@ class OrderView(tk.Toplevel):
         super().__init__(master)
         self.cantClient = cantClient 
         self.title("Ordena")
-        self.geometry("600x600")
+        self.geometry("900x500")
 
         label = tk.Label(self, text="Realice las órdenes")
         label.pack()
+
+        # Un diccionario para mantener un seguimiento de los Listbox de cada cliente
+        self.listboxes = {}
 
         for client_number in range(1, self.cantClient + 1):
             lblCliente = tk.Label(self, text=f"Cliente número {client_number}:")
@@ -28,11 +31,14 @@ class OrderView(tk.Toplevel):
             btnHealthy = tk.Button(frame_buttons, text="Ordenar saludable", command=lambda client=client_number: self.ordenar_saludable(client))
             btnHealthy.pack(side=tk.LEFT, padx=5)  # Alinea a la izquierda con un espacio de 5 píxeles
 
-            # Listbox para mostrar los resultados
+             # Listbox para mostrar los resultados
             frame_listbox = tk.Frame(self)
             frame_listbox.pack()
-            self.listbox = tk.Listbox(frame_listbox, width=40, height=1)
-            self.listbox.pack()
+            listbox = tk.Listbox(frame_listbox, width=200, height=2)
+            listbox.pack()
+
+            # Agregar el Listbox al diccionario con el número de cliente como clave
+            self.listboxes[client_number] = listbox
 
         btnPagar = tk.Button(frame_buttons, text="Pagar", command=lambda client=client_number: self.ordenar_saludable(client))
         btnPagar.pack(side=tk.LEFT, padx=5)  # Alinea a la izquierda con un espacio de 5 píxeles
@@ -48,4 +54,16 @@ class OrderView(tk.Toplevel):
     def ordenar_saludable(self, client_number):
         # Lógica para ordenar una comida saludable para el cliente 'client_number'
         print(f"Ordenar comida saludable para el cliente {client_number}")
-        orden = HealthyMealView()
+        #orden = HealthyMealView()
+
+        healthy_meal_view = HealthyMealView(self)  # Pasa self como maestro para la nueva ventana
+        self.wait_window(healthy_meal_view)  # Espera hasta que se cierre la ventana
+
+        # Accede a la selección almacenada en la ventana HealthyMealView
+        selected_option = healthy_meal_view.selected_option.get()
+
+         # Muestra la selección en el Listbox del cliente correspondiente
+        listbox = self.listboxes.get(client_number)
+        if listbox:
+            listbox.delete(0, tk.END)
+            listbox.insert(tk.END, f"Selección de comida saludable para el cliente {client_number}: {selected_option}")

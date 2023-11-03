@@ -52,9 +52,9 @@ elementoComida(tomates_cherry, acompanamiento, vegetales, desayuno).
 elementoComida(pure_de_papas, acompanamiento, carbohidratos, general).
 elementoComida(macarrones_con_queso, acompanamiento, carbohidratos, almuerzo).
 elementoComida(pan_integral, acompanamiento, carbohidratos, desayuno).
-elementoComida(sopa_de_tomate, acompanamiento, calientes, cena).
-elementoComida(crema_de_brocoli, acompanamiento, calientes, cena).
-elementoComida(papas_asadas, acompanamiento, calientes, general).
+elementoComida(sopa_de_tomate, acompanamiento, caliente, cena).
+elementoComida(crema_de_brocoli, acompanamiento, caliente, cena).
+elementoComida(papas_asadas, acompanamiento, caliente, general).
 elementoComida(queque, postre, reposteria, cena).
 elementoComida(fruta, postre, sin_lacteo, general).
 elementoComida(helado, postre, con_lacteo, general).

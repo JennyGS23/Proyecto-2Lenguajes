@@ -76,10 +76,24 @@ class HealthyMealView(tk.Toplevel):
         self.listbox = tk.Listbox(frame_listbox, width=100, height=15)
         self.listbox.pack()
         
+        
+
+        self.selected_option = tk.StringVar()  # Variable para almacenar la selección del Listbox
 
         # Botón ordenar
-        btnOrder = tk.Button(self, text="Ordenar combo")
+        btnOrder = tk.Button(self, text="Ordenar combo", command=self.guardar_seleccion)
         btnOrder.pack()
+
+    def guardar_seleccion(self):
+        # Obtén la selección actual del Listbox
+        selected_item = self.listbox.get(tk.ACTIVE)
+
+        # Almacena la selección en la variable selected_option
+        self.selected_option.set(selected_item)
+
+        # Cierra la ventana
+        self.destroy()
+
 
     def cargar_contenido(self):
         # Abre el archivo en modo lectura
