@@ -70,3 +70,14 @@ class Calorie:
             self.calories = newCalorie
         else:
             print("Calories must be int")
+
+    # Getter of Names
+    def getName(self):
+        return self.name
+
+    # Setter of Names
+    def setName(self, newName):
+        if isinstance(newName, str):
+            self.name = newName
+        else:
+            print("Name must be str")
