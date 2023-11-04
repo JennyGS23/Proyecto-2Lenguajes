@@ -40,8 +40,8 @@ class OrderView(tk.Toplevel):
             # Agregar el Listbox al diccionario con el número de cliente como clave
             self.listboxes[client_number] = listbox
 
-        btnPagar = tk.Button(frame_buttons, text="Pagar", command=lambda client=client_number: self.ordenar_saludable(client))
-        btnPagar.pack(side=tk.LEFT, padx=5)  # Alinea a la izquierda con un espacio de 5 píxeles
+        btnPagar = tk.Button(self, text="Pagar", command=lambda client=client_number: self.ordenar_saludable(client))
+        btnPagar.pack(side=tk.BOTTOM, padx=5)  # Alinea a la izquierda con un espacio de 5 píxeles
 
     def ordenar_combo(self, client_number):
         # Lógica para ordenar un combo para el cliente 'client_number'
@@ -67,3 +67,5 @@ class OrderView(tk.Toplevel):
         if listbox:
             listbox.delete(0, tk.END)
             listbox.insert(tk.END, f"Selección de comida saludable para el cliente {client_number}: {selected_option}")
+
+        
