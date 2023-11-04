@@ -30,7 +30,7 @@ def enviar_combinaciones():
 
     # Patrón de búsqueda utilizando expresiones regulares
     #pattern = r'{Bebida:(.*?),Proteina:(.*?),Acompanamientos:\[(.*?)\],Postre:(.*?),Calorias:(\d+)}'
-    pattern = r'Bebida: (.*?), Proteina: (.*?), Acompanamientos: \[(.*?)\], Postre: (.*?), Calorias: (\d+)'
+    pattern = r'Bebida: (.*?), Proteina: (.*?), Acompanamientos: \[(.*?)\], Postre: (.*?), Calorias: (\d+), Precio: (\d+)'
 
 
     # Itera a través de las líneas y extrae los componentes
@@ -43,9 +43,10 @@ def enviar_combinaciones():
             acompanamientos = match.group(3).split(',').pop()
             postre = match.group(4)
             calorias = int(match.group(5))
+            precio = int(match.group(6))
 
             # Llama a la función setMeal con los datos extraídos
-            database.setMeal(bebida, proteina, acompanamientos, postre, calorias)
+            database.setMeal(bebida, proteina, acompanamientos, postre, calorias, precio)
     # for solucion in prolog_instance.prolog.query('combinaciones_diferentes_cliente(caliente, marino, calientes, sin_postre,  cena, 600).'):
     #     print(solucion);
 
@@ -59,22 +60,22 @@ def obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, Momen
 
     
 
-if __name__ == '__main__':
-    # Bebida = 'caliente'
-    # Proteina = 'marino'
-    # Acompanamiento = 'calientes'
-    # Postre = 'sin_postre'
-    # MomentoDelDia = 'cena'
-    # CaloriasMinimas = 600
+# if __name__ == '__main__':
+#     # Bebida = 'caliente'
+#     # Proteina = 'marino'
+#     # Acompanamiento = 'calientes'
+#     # Postre = 'sin_postre'
+#     # MomentoDelDia = 'cena'
+#     # CaloriasMinimas = 600
 
-    Bebida = 'natural'
-    Proteina = 'blanca'
-    Acompanamiento = 'carbohidratos'
-    Postre = 'sin_lacteo'
-    MomentoDelDia = 'desayuno'
-    CaloriasMinimas = 600
+#     Bebida = 'natural'
+#     Proteina = 'blanca'
+#     Acompanamiento = 'carbohidratos'
+#     Postre = 'sin_lacteo'
+#     MomentoDelDia = 'desayuno'
+#     CaloriasMinimas = 600
 
-    combinaciones = obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas)
+#     combinaciones = obtener_combinaciones_prolog(Bebida, Proteina, Acompanamiento, Postre, MomentoDelDia, CaloriasMinimas)
     
 
 

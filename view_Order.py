@@ -6,7 +6,7 @@ class OrderView(tk.Toplevel):
         super().__init__(master)
         self.cantClient = cantClient 
         self.title("Ordena")
-        self.geometry("900x500")
+        self.geometry("1000x500")
 
         label = tk.Label(self, text="Realice las órdenes")
         label.pack()

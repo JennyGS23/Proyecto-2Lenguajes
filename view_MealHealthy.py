@@ -7,7 +7,7 @@ class HealthyMealView(tk.Toplevel):
     def __init__(self, master=None):
         super().__init__(master)
         self.title("Menu saludable")
-        self.geometry("800x500")
+        self.geometry("900x500")
 
         label = tk.Label(self, text="MENU SALUDABLE")
         label.pack()
@@ -73,7 +73,7 @@ class HealthyMealView(tk.Toplevel):
         # Listbox para mostrar los resultados
         frame_listbox = tk.Frame(self)
         frame_listbox.pack()
-        self.listbox = tk.Listbox(frame_listbox, width=100, height=15)
+        self.listbox = tk.Listbox(frame_listbox, width=200, height=15)
         self.listbox.pack()
         
         

@@ -1,10 +1,10 @@
-Bebida: te_chai_latte, Proteina: pollo_salsa_blanca, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_salsa_blanca, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_asado, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_salsa_blanca, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_salsa_jalapena, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_asado, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_salsa_blanca, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_salsa_blanca, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te_chai_latte, Proteina: pollo_salsa_jalapena, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 306
-Bebida: te, Proteina: pollo_asado, Acompanamientos: [pasta_primavera], Postre: panuelo_relleno, Calorias: 202
+Bebida: fresco_guanabana, Proteina: pollo_asado, Acompanamientos: [avena_con_frutas], Postre: tostadas_con_mantequilla_de_cacahuate, Calorías: 150, Precio: 4100
+Bebida: fresco_tamarindo, Proteina: pollo_asado, Acompanamientos: [avena_con_frutas,tostadas_de_pan], Postre: torta_de_chocolate_vegana, Calorías: 152, Precio: 4800
+Bebida: fresco_cas, Proteina: huevo, Acompanamientos: [avena_con_frutas,tostadas_de_pan], Postre: torta_de_chocolate_vegana, Calorías: 150, Precio: 3500
+Bebida: leche, Proteina: pollo_asado, Acompanamientos: [avena_con_frutas,tostadas_de_pan], Postre: torta_de_chocolate_vegana, Calorías: 132, Precio: 4200
+Bebida: fresco_guanabana, Proteina: pollo_asado, Acompanamientos: [avena_con_frutas], Postre: tostadas_con_mantequilla_de_cacahuate, Calorías: 150, Precio: 4100
+Bebida: agua, Proteina: huevo, Acompanamientos: [avena_con_frutas,tostadas_de_pan], Postre: tostadas_con_mantequilla_de_cacahuate, Calorías: 90, Precio: 2800
+Bebida: fresco_tamarindo, Proteina: huevo, Acompanamientos: [avena_con_frutas,tostadas_de_pan], Postre: tostadas_con_mantequilla_de_cacahuate, Calorías: 152, Precio: 3600
+Bebida: fresco_guanabana, Proteina: huevo, Acompanamientos: [tostadas_de_pan,avena_con_frutas], Postre: torta_de_chocolate_vegana, Calorías: 160, Precio: 3700
+Bebida: fresco_guanabana, Proteina: huevo, Acompanamientos: [tostadas_de_pan,avena_con_frutas], Postre: tostadas_con_mantequilla_de_cacahuate, Calorías: 160, Precio: 3700
+Bebida: fresco_tamarindo, Proteina: pollo_asado, Acompanamientos: [avena_con_frutas,tostadas_de_pan], Postre: torta_de_chocolate_vegana, Calorías: 152, Precio: 4800

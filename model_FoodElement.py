@@ -81,3 +81,33 @@ class Calorie:
             self.name = newName
         else:
             print("Name must be str")
+
+class Price:
+    def __init__(self):
+        self.name = None
+        self.price = None
+
+    def __str__(self):
+        return f"{self.name} - {self.price}"
+
+    # Getter of Names
+    def getName(self):
+        return self.name
+
+    # Setter of Names
+    def setName(self, newName):
+        if isinstance(newName, str):
+            self.name = newName
+        else:
+            print("Name must be str")
+
+    # Getter of calories
+    def getPrice(self):
+        return self.price
+
+    # Setter of calories
+    def setPrice(self, newPrice):
+        if isinstance(newPrice, int):
+            self.price = newPrice
+        else:
+            print("Price must be int")
