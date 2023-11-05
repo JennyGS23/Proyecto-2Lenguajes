@@ -13,13 +13,21 @@ CREATE TABLE Calorias 	(
 	FOREIGN KEY (ID) REFERENCES ElementoComida(ID)
 );
 
+CREATE TABLE Precio 	(
+	ID INT PRIMARY KEY,
+	Nombre VARCHAR(255),
+	Costo INT
+	FOREIGN KEY (ID) REFERENCES ElementoComida(ID)
+);
+
 CREATE TABLE HealthyMeals 	(
 	ID			INT IDENTITY(1,1) PRIMARY KEY,
 	Drink		VARCHAR(255),
 	Proteins	VARCHAR(255),
 	SideDish	VARCHAR(255),
 	Dessert		VARCHAR(255),
-	MinCalories	VARCHAR(255)
+	MinCalories	INT,
+	Price		INT
 );
 
 CREATE TABLE ComboMeals (
@@ -28,7 +36,6 @@ CREATE TABLE ComboMeals (
 	Proteins	VARCHAR(255),
 	SideDish	VARCHAR(255),
 	Dessert		VARCHAR(255),
-	DayMoment	VARCHAR(255)
 );
 
 
@@ -208,6 +215,109 @@ VALUES
 (75,'galleta_vegana', 130),
 (76,'panuelo_relleno', 180);
 
+
+INSERT INTO Precio(ID, Nombre, Costo)
+VALUES
+(1, 'agua', 500),
+(2, 'agua_con_gas', 750),
+(3, 'limonada', 800),
+(4, 'fresco_cas', 1200),
+(5, 'fresco_tamarindo', 1300),
+(6, 'fresco_guanabana', 1400),
+(7, 'jugo_naranja', 1000),
+(8, 'refresco', 900),
+(9, 'capucchino', 1500),
+(10, 'cafe', 1200),
+(11, 'leche', 700),
+(12, 'jugo_manzana', 950),
+(13, 'zumo_uva', 1100),
+(14, 'refresco_cola', 950),
+(15, 'te', 800),
+(16, 'refresco_naranja', 900),
+(17, 'refresco_limon', 950),
+(18, 'te_verde', 850),
+(19, 'te_negro', 850),
+(20, 'leche_chocolate', 1000),
+(21, 'fresa_en_leche', 1300),
+(22, 'batido_crema', 1400),
+(23, 'horchata', 1200),
+(24, 'te_chai_latte', 1500),
+(25, 'te_con_leche', 1200),
+(26, 'carne_res', 2500),
+(27, 'pollo_salsa_blanca', 2000),
+(28, 'pollo_salsa_jalapena', 2200),
+(29, 'pollo_asado', 1800),
+(30, 'pescado', 2200),
+(31, 'cerdo', 2200),
+(32, 'pavo', 2000),
+(33, 'atun', 1800),
+(34, 'salmon', 2300),
+(35, 'ceviche', 1500),
+(36, 'ternera', 2400),
+(37, 'huevo', 600),
+(38, 'tocino', 1200),
+(39, 'camaron', 1700),
+(40, 'pasta', 1000),
+(41, 'pasta_primavera', 1400),
+(42, 'avena_con_frutas', 900),
+(43, 'tostadas_de_pan', 800),
+(44, 'lentejas', 1100),
+(45, 'ensalada', 1200),
+(46, 'papas_fritas', 900),
+(47, 'arroz', 850),
+(48, 'vegetal_al_vapor', 1100),
+(49, 'ensalada_de_tomate', 950),
+(50, 'esparragos_gratinados', 1400),
+(51, 'tomates_cherry', 1200),
+(52, 'pure_de_papas', 900),
+(53, 'macarrones_con_queso', 1200),
+(54, 'pan_integral', 750),
+(55, 'sopa_de_tomate', 1100),
+(56, 'crema_de_brocoli', 1300),
+(57, 'papas_asadas', 1000),
+(58, 'queque', 1200),
+(59, 'fruta', 800),
+(60, 'helado', 1500),
+(61, 'tarta_manzana', 1400),
+(62, 'gelatina_frutas', 900),
+(63, 'tiramisu', 1600),
+(64, 'flan', 1300),
+(65, 'crema_cacahuate', 1000),
+(66, 'pudin_vainilla', 1200),
+(67, 'tarta_fresa', 1400),
+(68, 'chocolate_caliente', 1100),
+(69, 'helado_manzana', 1400),
+(70, 'tostadas_con_mantequilla_de_cacahuate', 900),
+(71, 'torta_de_chocolate_vegana', 1300),
+(72, 'batido_de_frutas_con_leche_de_almendras', 1200),
+(73, 'croissant', 1000),
+(74, 'donas_glaseadas', 800),
+(75, 'galleta_vegana', 900),
+(76, 'panuelo_relleno', 1100);
+
+
+
+INSERT INTO ComboMeals(Id, Drink, Proteins, SideDish, Dessert)
+VALUES
+(1,'batido_crema', 'pollo_asado', 'arroz', 'gelatina_frutas'),
+(2,'refresco_cola', 'ceviche', 'papas_fritas', 'helado'),
+(3,'jugo_naranja', 'tocino', 'tostadas_de_pan', 'fruta'),
+(4,'te', 'cerdo', 'ensalada', 'croissant'),
+(5,'refresco', 'salmon', 'pasta', 'helado_manzana'),
+(6,'zumo_uva', 'pollo_salsa_jalapena','ensalada_de_tomate', 'tiramisu');
+
+INSERT INTO ParcialMeals(Id, Proteins, SideDish)
+VALUES
+(1, 'ternera', 'ensalada'),
+(2, 'tocino', 'tostadas'),
+(3, 'camaron', 'vegetales_al_vapor'),
+(4, 'pescado', 'arroz'),
+(5, 'pavo', 'pasta');
+
+
+
+
+
 SELECT * FROM ElementoComida
 SELECT * FROM HealthyMeals
 SELECT * FROM 
@@ -217,5 +327,6 @@ SELECT * FROM
 drop table ElementoComida
 drop table Calorias
 drop table HealthyMeals
+drop table ComboMeals
 
 

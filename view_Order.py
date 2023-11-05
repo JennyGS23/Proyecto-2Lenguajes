@@ -1,5 +1,7 @@
 import tkinter as tk
+from view_MealCombo import ComboMealView
 from view_MealHealthy import HealthyMealView
+from view_MealParcial import ParcialMealView
 
 class OrderView(tk.Toplevel):
     def __init__(self, master=None, cantClient=None):
@@ -46,10 +48,30 @@ class OrderView(tk.Toplevel):
     def ordenar_combo(self, client_number):
         # Lógica para ordenar un combo para el cliente 'client_number'
         print(f"Ordenar combo para el cliente {client_number}")
+        combo_meal_view = ComboMealView(self)  # Pasa self como maestro para la nueva ventana
+        self.wait_window(combo_meal_view)  # Espera hasta que se cierre la ventana
+       
+        selected_option = combo_meal_view.selected_option.get()
+
+        # Muestra la selección en el Listbox del cliente correspondiente
+        listbox = self.listboxes.get(client_number)
+        if listbox:
+            listbox.delete(0, tk.END)
+            listbox.insert(tk.END, f"Selección de comida saludable para el cliente {client_number}: {selected_option}")
 
     def ordenar_parcial(self, client_number):
-        # Lógica para ordenar un menú parcial para el cliente 'client_number'
-        print(f"Ordenar menú parcial para el cliente {client_number}")
+        # Lógica para ordenar un combo para el cliente 'client_number'
+        print(f"Ordenar comida Parcial para el cliente {client_number}")
+        parcial_meal_view = ParcialMealView(self)  # Pasa self como maestro para la nueva ventana
+        self.wait_window(parcial_meal_view)  # Espera hasta que se cierre la ventana
+       
+        selected_option = parcial_meal_view.selected_option.get()
+
+        # Muestra la selección en el Listbox del cliente correspondiente
+        listbox = self.listboxes.get(client_number)
+        if listbox:
+            listbox.delete(0, tk.END)
+            listbox.insert(tk.END, f"Selección de comida saludable para el cliente {client_number}: {selected_option}")
 
     def ordenar_saludable(self, client_number):
         # Lógica para ordenar una comida saludable para el cliente 'client_number'
@@ -61,7 +83,7 @@ class OrderView(tk.Toplevel):
 
         # Accede a la selección almacenada en la ventana HealthyMealView
         selected_option = healthy_meal_view.selected_option.get()
-
+ 
          # Muestra la selección en el Listbox del cliente correspondiente
         listbox = self.listboxes.get(client_number)
         if listbox:

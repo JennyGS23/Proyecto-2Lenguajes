@@ -7,10 +7,11 @@ class ComboMeal(Meal):
         super().__init__()  # Initialize the attributes defined in the base class.
         self.drink = None
         self.dessert = None
-
+        self.price = None
+        
     def __str__(self):
         # Custom string representation of Combo Meal, combining its attributes.
-        return f"{self.id} - {self.drink} - {self.protein} - {self.sideDish} - {self.dessert} - {self.dayMoment}"
+        return f"{self.id} - {self.drink} - {self.protein} - {self.sideDish} - {self.dessert} - {self.price}"
 
     # Getter and Setter for 'id'
     def getId(self):
@@ -48,8 +49,15 @@ class ComboMeal(Meal):
         self.dessert = newDessert
 
     # Getter and Setter for 'dayMoment'
-    def getDayMoment(self):
-        return self.dayMoment
+    # def getDayMoment(self):
+    #     return self.dayMoment
 
-    def setDayMoment(self, newDayMoment):
-        self.dayMoment = newDayMoment
+    # def setDayMoment(self, newDayMoment):
+    #     self.dayMoment = newDayMoment
+
+    #Getter and Setter for 'price'
+    def getPrice(self):
+        return self.price
+
+    def setPrice(self, newPrice):
+        self.price = newPrice

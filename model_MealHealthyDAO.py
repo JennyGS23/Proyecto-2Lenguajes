@@ -33,11 +33,11 @@ class HealthyMealDAO:
 
     
     
-    def setMeal(self, drink, protein, sideDish, dessert, minCalories):
+    def setMeal(self, drink, protein, sideDish, dessert, minCalories, price):
         # Add a new meal to the database
         cursor = self.connection_string.connection.cursor()
-        cursor.execute("INSERT INTO HealthyMeals (Drink, Proteins, SideDish, Dessert, MinCalories) VALUES (?, ?, ?, ?, ?)",
-                    ( drink, protein, sideDish, dessert, minCalories))
+        cursor.execute("INSERT INTO HealthyMeals (Drink, Proteins, SideDish, Dessert, MinCalories, Price) VALUES (?, ?, ?, ?, ?, ?)",
+                    ( drink, protein, sideDish, dessert, minCalories, price))
         self.connection_string.connection.commit()
         cursor.close()
 

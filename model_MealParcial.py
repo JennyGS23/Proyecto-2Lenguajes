@@ -5,10 +5,10 @@ from model_Meal import Meal  # Import the base class 'Meal'
 class ParcialMeal(Meal):
     def __init__(self):
         super().__init__()  # Initialize the attributes defined in the base class.
-
+        self.price = None
     def __str__(self):
         # Custom string representation of Parcial Meal, combining its attributes.
-        return f"{self.id} - {self.protein} - {self.sideDish} - {self.dayMoment}"
+        return f"{self.id} - {self.protein} - {self.sideDish} - {self.price}"
 
     # Getter and Setter methods for 'id'
     def getId(self):
@@ -31,9 +31,9 @@ class ParcialMeal(Meal):
     def setSideDish(self, newSideDish):
         self.sideDish = newSideDish
 
-    # Getter and Setter methods for 'dayMoment'
-    def getDayMoment(self):
-        return self.dayMoment
+    # Getter and Setter methods for 'price'
+    def getPrice(self):
+        return self.price
 
-    def setDayMoment(self, newDayMoment):
-        self.dayMoment = newDayMoment
+    def setPrice(self, newPrice):
+        self.price = newPrice
