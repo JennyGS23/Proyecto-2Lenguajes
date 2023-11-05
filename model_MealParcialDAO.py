@@ -43,13 +43,11 @@ class ParcialMealDAO:
         self.connection_string.connection.commit()
         cursor.close()
 
-# Create an instance of FoodElementDAO
-#dao = MealDAO(connection_string)
 
-# Retrieve food elements and calorie information
-#meals = dao.getMeal()
-
-#dao.setMeal(new_drink, new_protein, new_sideDish, new_dessert, new_dayMoment, new_minCalories)
-
-# Close the database connection
-#dao.connection_string.connection.close()
+    def updatePrice(self, proteins, sideDish, new_price):
+        # Actualiza el precio de un combo de comida en la base de datos
+        cursor = self.connection_string.connection.cursor()
+        cursor.execute("UPDATE ParcialMeals SET Price = ? WHERE Proteins = ? AND SideDish = ? ",
+                       (new_price, proteins, sideDish))
+        self.connection_string.connection.commit()
+        cursor.close()

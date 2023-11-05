@@ -43,15 +43,12 @@ class ComboMealDAO:
                     (drink, proteins, sideDish, dessert, price))
         self.connection_string.connection.commit()
         cursor.close()
+        
+    def updatePrice(self, drink, proteins, sideDish, dessert, new_price):
+        # Actualiza el precio de un combo de comida en la base de datos
+        cursor = self.connection_string.connection.cursor()
+        cursor.execute("UPDATE ComboMeals SET Price = ? WHERE Drink = ? AND Proteins = ? AND SideDish = ? AND Dessert = ?",
+                       (new_price, drink, proteins, sideDish, dessert))
+        self.connection_string.connection.commit()
+        cursor.close()
 
-
-# Create an instance of FoodElementDAO
-#dao = MealDAO(connection_string)
-
-# Retrieve food elements and calorie information
-#meals = dao.getMeal()
-
-#dao.setMeal(new_drink, new_protein, new_sideDish, new_dessert, new_dayMoment, new_minCalories)
-
-# Close the database connection
-#dao.connection_string.connection.close()

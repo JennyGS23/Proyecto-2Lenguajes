@@ -9,10 +9,10 @@ class Add_Parcial_View(tkinter.Toplevel):
 
     def __init__(self, master=None):
         super().__init__(master)
-        self.title("Opciones para Agregar")
+        self.title("Agregar elementos Parcial")
         self.geometry("900x500")
 
-        label = tk.Label(self, text="Escoge el menú donde deseas agregar")
+        label = tk.Label(self, text="Ingresa los elementos para agregar")
         label.pack()
 
 

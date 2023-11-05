@@ -20,6 +20,8 @@ class TableView(tk.Toplevel):
         comboSeats = ttk.Combobox(frameSeats, values=["1", "2", "3", "4", "5"], state="readonly", textvariable=self.selectedSeats)
         comboSeats.pack(side="left")
 
+
+
         # ComboBox pay
         self.selectedPay = tk.StringVar()  # Corregir el nombre de la variable
         framePay = tk.Frame(self)
