@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from model_PrologInterpreter import obtener_combinaciones_prolog
+#from model_PrologInterpreter import obtener_combinaciones_prolog
 
 class HealthyMealView(tk.Toplevel):
     def __init__(self, master=None):
@@ -76,8 +76,6 @@ class HealthyMealView(tk.Toplevel):
         self.listbox = tk.Listbox(frame_listbox, width=200, height=15)
         self.listbox.pack()
         
-        
-
         self.selected_option = tk.StringVar()  # Variable para almacenar la selección del Listbox
 
         # Botón ordenar
