@@ -1,6 +1,7 @@
 import tkinter as tk
 from view_Changes import ChangesView
 from view_Table import TableView
+from view_stadistics import stadisticsView
 
 class VentanaPrincipal(tk.Tk):
     def __init__(self):
@@ -17,8 +18,15 @@ class VentanaPrincipal(tk.Tk):
         btn_modificaciones = tk.Button(self, text="Realizar modificaciones", command=self.modificaciones_ventana)
         btn_modificaciones.pack()
 
+        # Botón para abrir la segunda ventana
+        btn_estadisticas = tk.Button(self, text="Mostrar estadisticas", command=self.estadisticas_ventana)
+        btn_estadisticas.pack()
+
     def abrir_segunda_ventana(self):
         app = TableView()
 
     def modificaciones_ventana(self):
         app = ChangesView()
+
+    def estadisticas_ventana(self):
+        app = stadisticsView()

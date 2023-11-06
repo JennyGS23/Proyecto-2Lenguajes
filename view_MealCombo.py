@@ -3,6 +3,8 @@ from tkinter import ttk
 from controller_Main import DatabaseConnection
 from model_MealComboDAO import ComboMealDAO
 from model_PrologInterpreter import obtener_combinaciones_prolog
+import io
+
 
 
 connection_string = DatabaseConnection()
@@ -40,8 +42,14 @@ class ComboMealView(tk.Toplevel):
         # Obtén la selección actual del Listbox
         selected_item = self.listbox.get(tk.ACTIVE)
 
+        # Guarda la selección en un archivo de texto
+        with io.open("seleccionCombo.txt", "a", encoding="utf-8") as file:
+            file.write(selected_item + "\n")
+
         # Almacena la selección en la variable selected_option
         self.selected_option.set(selected_item)
+
+        
 
         # Cierra la ventana
         self.destroy()

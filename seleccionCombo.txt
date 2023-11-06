@@ -1,0 +1,7 @@
+ID: 5, Drink: refresco, Protein: salmon, SideDish: pasta, Dessert: helado_manzana, Price: 3500,
+ID: 6, Drink: zumo_uva, Protein: pollo_salsa_jalapena, SideDish: ensalada_de_tomate, Dessert: tiramisu, Price: 4000,
+ID: 6, Drink: zumo_uva, Protein: pollo_salsa_jalapena, SideDish: ensalada_de_tomate, Dessert: tiramisu, Price: 4000,
+ID: 6, Drink: zumo_uva, Protein: pollo_salsa_jalapena, SideDish: ensalada_de_tomate, Dessert: tiramisu, Price: 4000,
+ID: 6, Drink: zumo_uva, Protein: pollo_salsa_jalapena, SideDish: ensalada_de_tomate, Dessert: tiramisu, Price: 4000,
+ID: 5, Drink: refresco, Protein: salmon, SideDish: pasta, Dessert: helado_manzana, Price: 3500,
+ID: 3, Drink: jugo_naranja, Protein: tocino, SideDish: tostadas_de_pan, Dessert: fruta, Price: 3000,

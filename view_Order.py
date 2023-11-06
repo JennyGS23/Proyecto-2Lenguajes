@@ -74,7 +74,7 @@ class OrderView(tk.Toplevel):
         
         # Genera un número aleatorio largo como ID
         id = random.randrange(100000000000, 999999999999)
-        client = f"Cliente {client_number}"  # Reemplaza con el nombre o identificación del cliente
+        client = f"Mesa"  # Reemplaza con el nombre o identificación del cliente
 
         # Obtén las órdenes de todos los Listbox y únelas con saltos de línea
         orders = [self.listboxes[i].get(0) if i in self.listboxes else "" for i in range(1, self.cantClient + 1)]
