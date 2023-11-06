@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import StringVar
+from tkinter import StringVar, IntVar
 from fpdf import FPDF
 from datetime import datetime
 
@@ -14,7 +14,7 @@ class PDF(FPDF):
         self.set_font('Arial', 'I', 8)
         self.cell(0, 10, f'Página {self.page_no()}', align='C')
 
-def create_pdf(id, date, client, order):
+def create_pdf(id, date, client, order, payment_option):
     pdf = PDF()
     pdf.add_page()
     pdf.set_font('Arial', '', 12)
@@ -26,10 +26,12 @@ def create_pdf(id, date, client, order):
     lines = order.split('\n')
     for line in lines:
         pdf.multi_cell(0, 10, line)  # Utiliza multi_cell para permitir saltos de línea
+
+    payment_option_text = "Pago: Efectivo" if payment_option == 1 else "Pago: Tarjeta"
+    pdf.cell(0, 10, payment_option_text, ln=True)  # Agrega la opción de pago al PDF
     
     filename = f'factura{id}.pdf'
     pdf.output(filename)
-
 
 class BillView(tk.Toplevel):
     def __init__(self, master=None):
@@ -45,6 +47,7 @@ class BillView(tk.Toplevel):
         self.date_var = StringVar()
         self.client_var = StringVar()
         self.order_var = StringVar()
+        self.payment_option = IntVar(value=1)  # Por defecto, se selecciona Efectivo
 
         frameID = tk.Frame(self)
         frameID.pack()
@@ -74,6 +77,16 @@ class BillView(tk.Toplevel):
         entryOrder = tk.Entry(frameOrder, textvariable=self.order_var, state="readonly")
         entryOrder.pack(side="left")
 
+        # Radio buttons para la opción de pago
+        payment_frame = tk.Frame(self)
+        payment_frame.pack()
+        payment_label = tk.Label(payment_frame, text="Opción de Pago:")
+        payment_label.pack()
+        efectivo_radio = tk.Radiobutton(payment_frame, text="Efectivo", variable=self.payment_option, value=1)
+        efectivo_radio.pack()
+        tarjeta_radio = tk.Radiobutton(payment_frame, text="Tarjeta", variable=self.payment_option, value=2)
+        tarjeta_radio.pack()
+
         # Botón pagar
         btnPagar = tk.Button(self, text="Pagar", command=self.Pagar)
         btnPagar.pack()
@@ -84,12 +97,13 @@ class BillView(tk.Toplevel):
         current_date = datetime.now().strftime('%Y-%m-%d')
         client = self.client_var.get()
         order = self.order_var.get()
+        payment_option = self.payment_option.get()
 
         # Asigna la fecha actual a la variable date_var
         self.date_var.set(current_date)
 
-        # Crea el PDF con los datos de la factura
-        create_pdf(id, current_date, client, order)
+        # Crea el PDF con los datos de la factura y la opción de pago
+        create_pdf(id, current_date, client, order, payment_option)
 
 if __name__ == "__main__":
     root = tk.Tk()
@@ -98,5 +112,4 @@ if __name__ == "__main__":
     # La fecha se establecerá automáticamente en la función Pagar
     app.client_var.set("Cliente Ejemplo")
     app.order_var.set("Orden de Prueba")
-    app.price_var.set("100.00")
     app.mainloop()
