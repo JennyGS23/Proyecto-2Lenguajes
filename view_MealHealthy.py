@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+from model_PrologInterpreter import obtener_combinaciones_prolog
+
 #from model_PrologInterpreter import obtener_combinaciones_prolog
 
 class HealthyMealView(tk.Toplevel):

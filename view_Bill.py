@@ -14,17 +14,22 @@ class PDF(FPDF):
         self.set_font('Arial', 'I', 8)
         self.cell(0, 10, f'Página {self.page_no()}', align='C')
 
-def create_pdf(id, date, client, order, price):
+def create_pdf(id, date, client, order):
     pdf = PDF()
     pdf.add_page()
     pdf.set_font('Arial', '', 12)
     pdf.cell(0, 10, f'ID: {id}', ln=True)
     pdf.cell(0, 10, f'Fecha: {date}', ln=True)
     pdf.cell(0, 10, f'Cliente: {client}', ln=True)
-    pdf.cell(0, 10, f'Orden realizada: {order}', ln=True)
-    pdf.cell(0, 10, f'Precio: ${price}', ln=True)
+    
+    # Dividir el texto de la orden en líneas más cortas
+    lines = order.split('\n')
+    for line in lines:
+        pdf.multi_cell(0, 10, line)  # Utiliza multi_cell para permitir saltos de línea
+    
     filename = f'factura{id}.pdf'
     pdf.output(filename)
+
 
 class BillView(tk.Toplevel):
     def __init__(self, master=None):
@@ -40,7 +45,6 @@ class BillView(tk.Toplevel):
         self.date_var = StringVar()
         self.client_var = StringVar()
         self.order_var = StringVar()
-        self.price_var = StringVar()
 
         frameID = tk.Frame(self)
         frameID.pack()
@@ -70,13 +74,6 @@ class BillView(tk.Toplevel):
         entryOrder = tk.Entry(frameOrder, textvariable=self.order_var, state="readonly")
         entryOrder.pack(side="left")
 
-        framePrice = tk.Frame(self)
-        framePrice.pack()
-        lblPrice = tk.Label(framePrice, text="Precio")
-        lblPrice.pack()
-        entryPrice = tk.Entry(framePrice, textvariable=self.price_var, state="readonly")
-        entryPrice.pack(side="left")
-
         # Botón pagar
         btnPagar = tk.Button(self, text="Pagar", command=self.Pagar)
         btnPagar.pack()
@@ -87,20 +84,19 @@ class BillView(tk.Toplevel):
         current_date = datetime.now().strftime('%Y-%m-%d')
         client = self.client_var.get()
         order = self.order_var.get()
-        price = self.price_var.get()
 
         # Asigna la fecha actual a la variable date_var
         self.date_var.set(current_date)
 
         # Crea el PDF con los datos de la factura
-        create_pdf(id, current_date, client, order, price)
+        create_pdf(id, current_date, client, order)
 
-# if __name__ == "__main__":
-#     root = tk.Tk()
-#     app = BillView(master=root)
-#     app.id_var.set("12345")
-#     # La fecha se establecerá automáticamente en la función Pagar
-#     app.client_var.set("Cliente Ejemplo")
-#     app.order_var.set("Orden de Prueba")
-#     app.price_var.set("100.00")
-#     app.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = BillView(master=root)
+    app.id_var.set("12345")
+    # La fecha se establecerá automáticamente en la función Pagar
+    app.client_var.set("Cliente Ejemplo")
+    app.order_var.set("Orden de Prueba")
+    app.price_var.set("100.00")
+    app.mainloop()

@@ -1,4 +1,6 @@
 import tkinter as tk
+import random
+from view_Bill import BillView
 from view_MealCombo import ComboMealView
 from view_MealHealthy import HealthyMealView
 from view_MealParcial import ParcialMealView
@@ -13,10 +15,6 @@ class OrderView(tk.Toplevel):
 
         label = tk.Label(self, text="Realice las órdenes")
         label.pack()
-
-        if self.uniquePay:
-            label = tk.Label(self, text="Realice las órdenes")
-            label.pack()
 
         # Un diccionario para mantener un seguimiento de los Listbox de cada cliente
         self.listboxes = {}
@@ -48,12 +46,53 @@ class OrderView(tk.Toplevel):
             self.listboxes[client_number] = listbox
 
             if not self.uniquePay:
-                    btnPagar = tk.Button(frame_buttons, text=f"Pagar Cliente {client_number}", command=lambda client=client_number: self.pagar(client=client_number))
-                    btnPagar.pack(side=tk.LEFT, padx=5)
+                btnPagar = tk.Button(frame_buttons, text=f"Pagar Cliente {client_number}", command=lambda client=client_number: self.pagar(client))
+                btnPagar.pack(side=tk.LEFT, padx=5)
             
         if self.uniquePay:
-            btnPagar = tk.Button(self, text="Pagar", command=None)
+            btnPagar = tk.Button(self, text="Pagar Cliente Mesa", command= lambda client=client_number: self.pagarUnico(client))
             btnPagar.pack(side=tk.BOTTOM, padx=5)
+
+    def pagar(self, client_number):
+        # Genera un número aleatorio largo como ID
+        id = random.randrange(100000000000, 999999999999)
+        client = f"Cliente {client_number}"  # Reemplaza con el nombre o identificación del cliente
+        order = self.listboxes[client_number].get(0)  # Obtén la orden del Listbox del cliente
+        price = "200"  # Reemplaza con la lógica para calcular el precio
+
+        # Crea una instancia de BillView y pasa los parámetros necesarios
+        bill_view = BillView(self)
+        bill_view.id_var.set(id)
+        bill_view.client_var.set(client)
+        bill_view.order_var.set(order)
+
+        # Muestra la ventana de factura
+        self.wait_window(bill_view)
+
+
+    def pagarUnico(self, client_number):
+        
+        # Genera un número aleatorio largo como ID
+        id = random.randrange(100000000000, 999999999999)
+        client = f"Cliente {client_number}"  # Reemplaza con el nombre o identificación del cliente
+
+        # Obtén las órdenes de todos los Listbox y únelas con saltos de línea
+        orders = [self.listboxes[i].get(0) if i in self.listboxes else "" for i in range(1, self.cantClient + 1)]
+        order = "\n".join(orders)  # Concatena las órdenes con saltos de línea
+
+        #price = "200"  # Reemplaza con la lógica para calcular el precio
+
+        # Crea una instancia de BillView y pasa los parámetros necesarios
+        bill_view = BillView(self)
+        bill_view.id_var.set(id)
+        bill_view.client_var.set(client)
+        bill_view.order_var.set(order)
+
+        # Muestra la ventana de factura
+        self.wait_window(bill_view)
+
+
+
 
     def ordenar_combo(self, client_number):
         # Lógica para ordenar un combo para el cliente 'client_number'
@@ -67,7 +106,7 @@ class OrderView(tk.Toplevel):
         listbox = self.listboxes.get(client_number)
         if listbox:
             listbox.delete(0, tk.END)
-            listbox.insert(tk.END, f"Selección de comida saludable para el cliente {client_number}: {selected_option}")
+            listbox.insert(tk.END, f"Cliente {client_number}: {selected_option}")
 
     def ordenar_parcial(self, client_number):
         # Lógica para ordenar un combo para el cliente 'client_number'
@@ -81,14 +120,12 @@ class OrderView(tk.Toplevel):
         listbox = self.listboxes.get(client_number)
         if listbox:
             listbox.delete(0, tk.END)
-            listbox.insert(tk.END, f"Selección de comida saludable para el cliente {client_number}: {selected_option}")
+            listbox.insert(tk.END, f"Cliente {client_number}: {selected_option}")
 
     def ordenar_saludable(self, client_number):
-        return
+        
         # Lógica para ordenar una comida saludable para el cliente 'client_number'
-        print(f"Ordenar comida saludable para el cliente {client_number}")
-        #orden = HealthyMealView()
-
+        
         healthy_meal_view = HealthyMealView(self)  # Pasa self como maestro para la nueva ventana
         self.wait_window(healthy_meal_view)  # Espera hasta que se cierre la ventana
 
@@ -99,6 +136,6 @@ class OrderView(tk.Toplevel):
         listbox = self.listboxes.get(client_number)
         if listbox:
             listbox.delete(0, tk.END)
-            listbox.insert(tk.END, f"Selección de comida saludable para el cliente {client_number}: {selected_option}")
+            listbox.insert(tk.END, f"Cliente {client_number}: {selected_option}")
 
         
