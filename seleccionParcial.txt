@@ -1,0 +1,6 @@
+ID: 3, Protein: camaron, SideDish: vegetales_al_vapor, Price: 4000
+ID: 3, Protein: camaron, SideDish: vegetales_al_vapor, Price: 4000
+ID: 1, Protein: ternera, SideDish: ensalada, Price: 6000
+ID: 5, Protein: pavo, SideDish: pasta, Price: 5000
+ID: 6, Protein: Carne, SideDish: Agua, Price: 1600
+ID: 1, Protein: ternera, SideDish: ensalada, Price: 3500 , Calorie: 700

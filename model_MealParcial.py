@@ -8,7 +8,7 @@ class ParcialMeal(Meal):
         self.price = None
     def __str__(self):
         # Custom string representation of Parcial Meal, combining its attributes.
-        return f"{self.id} - {self.protein} - {self.sideDish} - {self.price}"
+        return f"{self.id} - {self.protein} - {self.sideDish} - {self.price} - {self.calorie}"
 
     # Getter and Setter methods for 'id'
     def getId(self):
@@ -37,3 +37,10 @@ class ParcialMeal(Meal):
 
     def setPrice(self, newPrice):
         self.price = newPrice
+
+    # Getter and Setter methods for 'calorie'
+    def getCalorie(self):
+        return self.calorie
+
+    def setCalorie(self, newCalorie):
+        self.calorie = newCalorie

@@ -29,7 +29,7 @@ class ComboMealView(tk.Toplevel):
         self.listbox = tk.Listbox(frame_listbox, width=200, height=15)
         self.listbox.pack()
         for meal in meals:
-            self.listbox.insert(tk.END, f"ID: {meal.getId()}, Drink: {meal.getDrink()}, Protein: {meal.getProtein()}, SideDish: {meal.getSideDish()}, Dessert: {meal.getDessert()}, Price: {meal.getPrice()},")
+            self.listbox.insert(tk.END, f"ID: {meal.getId()}, Drink: {meal.getDrink()}, Protein: {meal.getProtein()}, SideDish: {meal.getSideDish()}, Dessert: {meal.getDessert()}, Price: {meal.getPrice()}, Calorie: {meal.getCalorie()}")
 
         
         self.selected_option = tk.StringVar()  # Variable para almacenar la selección del Listbox

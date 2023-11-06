@@ -28,7 +28,7 @@ class Modify_Parcial_View(tkinter.Toplevel):
         self.listbox = tk.Listbox(frame_listbox, width=200, height=15)
         self.listbox.pack()
         for meal in meals:
-            self.listbox.insert(tk.END, f"ID: {meal.getId()}, Protein: {meal.getProtein()}, SideDish: {meal.getSideDish()}, Price: {meal.getPrice()}")
+            self.listbox.insert(tk.END, f"ID: {meal.getId()}, Protein: {meal.getProtein()}, SideDish: {meal.getSideDish()}, Price: {meal.getPrice()}, Calorie: {meal.getCalorie()}")
 
         
         self.selected_option = tk.StringVar()  # Variable para almacenar la selección del Listbox
@@ -57,13 +57,14 @@ class Modify_Parcial_View(tkinter.Toplevel):
         protein_value = values[1].split(": ")[1]
         side_dish_value = values[2].split(": ")[1]
         price_selection = self.selected_Price.get()
+        calorie_value = values[3].split(": ")[1]
 
         # Llamar a delete_New_Combo con los valores seleccionados
-        self.Modify_Parcial(protein_value, side_dish_value, price_selection)
+        self.Modify_Parcial(protein_value, side_dish_value, price_selection, calorie_value)
 
-    def Modify_Parcial(self, protein, side_dish, price):
+    def Modify_Parcial(self, protein, side_dish, price, calorie):
         database = ParcialMealDAO(connection_string)
 
         # Utiliza los valores recibidos como parámetros
         # para eliminar la combinación deseada
-        database.updatePrice(protein, side_dish, price)
+        database.updatePrice(protein, side_dish, price, calorie)

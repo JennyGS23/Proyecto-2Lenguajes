@@ -41,6 +41,15 @@ class Add_Parcial_View(tkinter.Toplevel):
         comboPrice = tk.Entry(frame_price, textvariable=self.selected_Price)
         comboPrice.pack(side="left")
 
+
+        self.selected_Calorie = tk.StringVar()  # Variable para almacenar la selección
+        frame_clorie = tk.Frame(self)
+        frame_clorie.pack()
+        lblCalorie = tk.Label(frame_calorie, text="Costo total: ")
+        lblCalorie.pack(side="left")
+        comboCalorie = tk.Entry(frame_calorie, textvariable=self.selected_Calorie)
+        comboCalorie.pack(side="left")
+
         # Botón ordenar
         btnNewCombo = tk.Button(self, text="Guardar nuevo Parcial", command= self.save_New_Parcial)
         btnNewCombo.pack()
@@ -51,6 +60,7 @@ class Add_Parcial_View(tkinter.Toplevel):
         protein_selection = self.selected_Proteins.get()
         side_dish_selection = self.selected_SideDish.get()
         price_selection = self.selected_Price.get()
+        calorie_selection = self.selected_Calorie.get()
         #print(drink_selection, protein_selection, side_dish_selection, dessert_selection, price_selection)
 
-        database.setMeal(protein_selection, side_dish_selection,  price_selection)
+        database.setMeal(protein_selection, side_dish_selection,  price_selection, calorie_selection)

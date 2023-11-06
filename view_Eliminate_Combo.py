@@ -17,7 +17,7 @@ class Eliminate_Combo_View(tkinter.Toplevel):
         label = tk.Label(self, text="Escoge el menú donde deseas eliminar")
         label.pack()
 
-        label = tk.Label(self, text="MENU PARCIAL")
+        label = tk.Label(self, text="MENU Combo")
         label.pack()
 
 
@@ -31,7 +31,7 @@ class Eliminate_Combo_View(tkinter.Toplevel):
         self.listbox = tk.Listbox(frame_listbox, width=200, height=15)
         self.listbox.pack()
         for meal in meals:
-            self.listbox.insert(tk.END, f"ID: {meal.getId()}, Drink: {meal.getDrink()}, Protein: {meal.getProtein()}, SideDish: {meal.getSideDish()}, Dessert: {meal.getDessert()}, Price: {meal.getPrice()},")
+            self.listbox.insert(tk.END, f"ID: {meal.getId()}, Drink: {meal.getDrink()}, Protein: {meal.getProtein()}, SideDish: {meal.getSideDish()}, Dessert: {meal.getDessert()}, Price: {meal.getPrice()}, Calorie: {meal.getCalorie()}")
 
         
         self.selected_option = tk.StringVar()  # Variable para almacenar la selección del Listbox
@@ -55,13 +55,14 @@ class Eliminate_Combo_View(tkinter.Toplevel):
         side_dish_value = values[3].split(": ")[1]
         dessert_value = values[4].split(": ")[1]
         price_value = int(values[5].split(": ")[1].strip(', '))
+        calorie_value = values[6].split(": ")[1]
 
         # Llamar a delete_New_Combo con los valores seleccionados
-        self.delete_Combo(drink_value, protein_value, side_dish_value, dessert_value, price_value)
+        self.delete_Combo(drink_value, protein_value, side_dish_value, dessert_value, price_value, calorie_value)
 
-    def delete_Combo(self, drink, protein, side_dish, dessert, price):
+    def delete_Combo(self, drink, protein, side_dish, dessert, price, calorie):
         database = ComboMealDAO(connection_string)
 
         # Utiliza los valores recibidos como parámetros
         # para eliminar la combinación deseada
-        database.deleteMeal(drink, protein, side_dish, dessert, price)
+        database.deleteMeal(drink, protein, side_dish, dessert, price, calorie)

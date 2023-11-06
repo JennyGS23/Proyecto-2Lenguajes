@@ -12,11 +12,10 @@ CREATE TABLE Calorias 	(
 	CantidadCalorias INT
 );
 
-CREATE TABLE Precio 	(
+CREATE TABLE Precio (
 	ID INT IDENTITY(1,1) PRIMARY KEY,
 	Nombre VARCHAR(255),
 	Costo INT
-	FOREIGN KEY (ID) REFERENCES ElementoComida(ID)
 );
 
 CREATE TABLE HealthyMeals 	(
@@ -135,85 +134,85 @@ VALUES
 
 
 
-INSERT INTO Calorias(ID, Nombre, CantidadCalorias)
+INSERT INTO Calorias(Nombre, CantidadCalorias)
 VALUES 
 
-(1,'agua', 0),
-(2,'agua_con_gas',0),
-(3,'limonada',40),
-(4,'fresco_cas', 60),
-(5,'fresco_tamarindo', 62),
-(6,'fresco_guanabana', 70),
-(7,'jugo_naranja', 120),
-(8,'refresco', 120),
-(9,'capucchino', 40),
-(10,'cafe', 2),
-(11,'leche', 42),
-(12,'jugo_manzana',115),
-(13,'zumo_uva', 154),
-(14,'refresco_cola', 140),
-(15,'te',2),
-(16,'refresco_naranja',150),
-(17,'refresco_limon', 135),
-(18,'te_verde', 2),
-(19,'te_negro', 2),
-(20,'leche_chocolate', 208),
-(21, 'fresa_en_leche', 208),
-(22, 'batido_crema', 100),
-(23, 'horchata', 80),
-(24,'te_chai_latte', 106),
-(25,'te_con_leche', 120),
-(26,'carne_res', 250),
-(27,'pollo_salsa_blanca', 335),
-(28,'pollo_salsa_jalapena', 330),
-(29,'pollo_asado', 320),
-(30,'pescado', 206),
-(31,'cerdo', 242),
-(32,'pavo', 135),
-(33,'atun',184),
-(34,'salmon', 100),
-(35,'ceviche', 150),
-(36,'ternera', 250),
-(37,'huevo', 68),
-(38,'tocino', 68),
-(39,'camaron', 99),
-(40,'pasta', 100),
-(41,'pasta_primavera', 200),
-(42,'avena_con_frutas', 80),
-(43,'tostadas_de_pan', 10),
-(44,'lentejas', 230),
-(45,'ensalada', 35),
-(46,'papas_fritas', 365),
-(47,'arroz', 130),
-(48,'vegetal_al_vapor', 68),
-(49,'ensalada_de_tomate', 78),
-(50,'esparragos_gratinados', 124),
-(51,'tomates_cherry', 50),
-(52,'pure_de_papas',143),
-(53,'macarrones_con_queso',350),
-(54,'pan_integral', 80),
-(55,'sopa_de_tomate', 74),
-(56,'crema_de_brocoli', 103),
-(57,'papas_asadas',130),
-(58,'queque', 350 ),
-(59,'fruta', 120 ),
-(60,'helado', 207 ),
-(61,'tarta_manzana', 316),
-(62,'gelatina_frutas', 62),
-(63,'tiramisu', 280 ),
-(64,'flan', 153 ),
-(65,'crema_cacahuate',400),
-(66,'pudin_vainilla',174),
-(67,'tarta_fresa',271),
-(68,'chocolate_caliente',192),
-(69,'helado_manzana',190),
-(70,'tostadas_con_mantequilla_de_cacahuate', 200),
-(71,'torta_de_chocolate_vegana', 140),
-(72,'batido_de_frutas_con_leche_de_almendras', 100),
-(73,'croissant', 90),
-(74,'donas_glaseadas', 150),
-(75,'galleta_vegana', 130),
-(76,'panuelo_relleno', 180);
+('agua', 0),
+('agua_con_gas',0),
+('limonada',40),
+('fresco_cas', 60),
+('fresco_tamarindo', 62),
+('fresco_guanabana', 70),
+('jugo_naranja', 120),
+('refresco', 120),
+('capucchino', 40),
+('cafe', 2),
+('leche', 42),
+('jugo_manzana',115),
+('zumo_uva', 154),
+('refresco_cola', 140),
+('te',2),
+('refresco_naranja',150),
+('refresco_limon', 135),
+('te_verde', 2),
+('te_negro', 2),
+('leche_chocolate', 208),
+('fresa_en_leche', 208),
+('batido_crema', 100),
+('horchata', 80),
+('te_chai_latte', 106),
+('te_con_leche', 120),
+('carne_res', 250),
+('pollo_salsa_blanca', 335),
+('pollo_salsa_jalapena', 330),
+('pollo_asado', 320),
+('pescado', 206),
+('cerdo', 242),
+('pavo', 135),
+('atun',184),
+('salmon', 100),
+('ceviche', 150),
+('ternera', 250),
+('huevo', 68),
+('tocino', 68),
+('camaron', 99),
+('pasta', 100),
+('pasta_primavera', 200),
+('avena_con_frutas', 80),
+('tostadas_de_pan', 10),
+('lentejas', 230),
+('ensalada', 35),
+('papas_fritas', 365),
+('arroz', 130),
+('vegetal_al_vapor', 68),
+('ensalada_de_tomate', 78),
+('esparragos_gratinados', 124),
+('tomates_cherry', 50),
+('pure_de_papas',143),
+('macarrones_con_queso',350),
+('pan_integral', 80),
+('sopa_de_tomate', 74),
+('crema_de_brocoli', 103),
+('papas_asadas',130),
+('queque', 350 ),
+('fruta', 120 ),
+('helado', 207 ),
+('tarta_manzana', 316),
+('gelatina_frutas', 62),
+('tiramisu', 280 ),
+('flan', 153 ),
+('crema_cacahuate',400),
+('pudin_vainilla',174),
+('tarta_fresa',271),
+('chocolate_caliente',192),
+('helado_manzana',190),
+('tostadas_con_mantequilla_de_cacahuate', 200),
+('torta_de_chocolate_vegana', 140),
+('batido_de_frutas_con_leche_de_almendras', 100),
+('croissant', 90),
+('donas_glaseadas', 150),
+('galleta_vegana', 130),
+('panuelo_relleno', 180);
 
 
 INSERT INTO Precio(Nombre, Costo)
@@ -297,22 +296,22 @@ VALUES
 
 
 
-INSERT INTO ComboMeals(Drink, Proteins, SideDish, Dessert, Price)
+INSERT INTO ComboMeals(Drink, Proteins, SideDish, Dessert, Price, Calories)
 VALUES
-('batido_crema', 'pollo_asado', 'arroz', 'gelatina_frutas', 4000),
-('refresco_cola', 'ceviche', 'papas_fritas', 'helado', 5000),
-('jugo_naranja', 'tocino', 'tostadas_de_pan', 'fruta', 3000),
-('te', 'cerdo', 'ensalada', 'croissant', 3000),
-('refresco', 'salmon', 'pasta', 'helado_manzana', 3500),
-('zumo_uva', 'pollo_salsa_jalapena','ensalada_de_tomate', 'tiramisu', 4000);
+('batido_crema', 'pollo_asado', 'arroz', 'gelatina_frutas', 4000, 1500),
+('refresco_cola', 'ceviche', 'papas_fritas', 'helado', 5000, 800 ),
+('jugo_naranja', 'tocino', 'tostadas_de_pan', 'fruta', 3000, 5000),
+('te', 'cerdo', 'ensalada', 'croissant', 3000, 1900),
+('refresco', 'salmon', 'pasta', 'helado_manzana', 3500, 600),
+('zumo_uva', 'pollo_salsa_jalapena','ensalada_de_tomate', 'tiramisu', 4000, 745);
 
-INSERT INTO ParcialMeals(Proteins, SideDish, Price)
+INSERT INTO ParcialMeals(Proteins, SideDish, Price, Calories)
 VALUES
-('ternera', 'ensalada', 3500),
-('tocino', 'tostadas', 3000),
-('camaron', 'vegetales_al_vapor', 4000),
-('pescado', 'arroz', 3500),
-('pavo', 'pasta', 3500);
+('ternera', 'ensalada', 3500, 700),
+('tocino', 'tostadas', 3000, 500),
+('camaron', 'vegetales_al_vapor', 4000, 500),
+('pescado', 'arroz', 3500, 600),
+('pavo', 'pasta', 3500, 400);
 
 
 SELECT * FROM ElementoComida
@@ -320,13 +319,11 @@ SELECT * FROM HealthyMeals
 SELECT * FROM ComboMeals
 SELECT * FROM ParcialMeals
 SELECT * FROM Calorias
+SELECT * FROM Precio
+
+drop*from ComboMeals
+drop*from ParcialMeals
 
 
 
 
-drop table ElementoComida
-drop table Calorias
-drop table HealthyMeals
-drop table ComboMeals
-drop table ParcialMeals
-drop table Precio

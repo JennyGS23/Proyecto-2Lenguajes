@@ -56,6 +56,14 @@ class Add_Combo_View(tkinter.Toplevel):
         comboPrice = tk.Entry(frame_price, textvariable=self.selected_Price)
         comboPrice.pack(side="left")
 
+        self.selected_Calories = tk.StringVar()  # Variable para almacenar la selección
+        frame_calorie = tk.Frame(self)
+        frame_calorie.pack()
+        lblCalorie = tk.Label(frame_calorie, text="Calorias totales: ")
+        lblCalorie.pack(side="left")
+        comboCalorie = tk.Entry(frame_calorie, textvariable=self.selected_Calories)
+        comboCalorie.pack(side="left")
+
         # Botón ordenar
         btnNewCombo = tk.Button(self, text="Guardar nuevo Combo", command= self.save_New_Combo)
         btnNewCombo.pack()
@@ -69,8 +77,9 @@ class Add_Combo_View(tkinter.Toplevel):
         side_dish_selection = self.selected_SideDish.get()
         dessert_selection = self.selected_Dessert.get()
         price_selection = self.selected_Price.get()
+        calories_selection = self.selected_Calories.get()
         #print(drink_selection, protein_selection, side_dish_selection, dessert_selection, price_selection)
 
-        database.setMeal(drink_selection, protein_selection, side_dish_selection, dessert_selection, price_selection)
+        database.setMeal(drink_selection, protein_selection, side_dish_selection, dessert_selection, price_selection, calories_selection)
 
     
